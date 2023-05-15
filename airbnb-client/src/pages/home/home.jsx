@@ -1,11 +1,11 @@
-import "./App.css";
 import Header from "../../component/header/index";
-function App() {
+
+const Home = () => {
   return (
     <>
       <Header />
     </>
   );
-}
+};
 
-export default App;
+export default Home;
