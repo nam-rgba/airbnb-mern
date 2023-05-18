@@ -1,0 +1,42 @@
+.container {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container div {
+    width: 25%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container div:nth-child(1) {
+    border-bottom: 5px solid #1f3fa4;
+}
+
+.container div:nth-child(2) {
+    border-bottom: 5px solid #8abf2c;
+}
+
+.container div:nth-child(3) {
+    border-bottom: 5px solid #89da59;
+}
+
+.container div:nth-child(4) {
+    border-bottom: 5px solid #336b87;
+}
+
+.container img {
+
+    height: 100%;
+}

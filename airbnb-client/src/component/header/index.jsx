@@ -11,7 +11,7 @@ export default function Header() {
       <header>
         <div className={style.logo}>
           <a href="">
-            <Image name="airbnb" />
+            <Image name="airbnb" type="svg" />
           </a>
         </div>
 

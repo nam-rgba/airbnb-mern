@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-const Image = ({ name }) => {
+const Image = ({ name, type }) => {
   const [image, setImage] = useState();
   try {
-    import(`./assets/${name}.svg`).then((image) => {
+    import(`./assets/${name}.${type}`).then((image) => {
       setImage(image.default);
     });
 
