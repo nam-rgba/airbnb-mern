@@ -4,6 +4,7 @@ import { BsList } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import style from "./header.module.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -41,7 +42,9 @@ export default function Header() {
 
           <div className={style.account_btn}>
             <BsList />
-            <FaUserCircle />
+            <Link to="/account/login">
+              <FaUserCircle />
+            </Link>
           </div>
         </div>
       </header>
