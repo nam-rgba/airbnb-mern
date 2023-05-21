@@ -116,8 +116,30 @@ a {
     cursor: pointer;
     transition: 0.1s all;
     color: #4f4f4f;
+    position: relative;
 }
 
 .account_btn:hover {
     box-shadow: 0 4px 6px -6px #4f4f4f;
+}
+
+.account_expand {
+    position: absolute;
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    top: 115%;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
+    border-radius: 10px;
+}
+
+.account_expand a {
+    text-align: left;
+    padding: 0.5rem 1.4rem;
+    max-width: 100%;
+    box-sizing: border-box;
 }

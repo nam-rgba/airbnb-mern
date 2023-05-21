@@ -5,8 +5,14 @@ import { FaUserCircle } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import style from "./header.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Header() {
+  const [account, setAccount] = useState(false);
+
+  const expandAccount = () => {
+    setAccount(!account);
+  };
   return (
     <>
       <header>
@@ -40,11 +46,20 @@ export default function Header() {
             <TfiWorld />
           </div>
 
-          <div className={style.account_btn}>
+          <div className={style.account_btn} onClick={expandAccount}>
             <BsList />
             <Link to="/account/login">
               <FaUserCircle />
             </Link>
+
+            {account && (
+              <div className={style.account_expand}>
+                <Link>Login</Link>
+                <Link>Register</Link>
+                <Link>Airbnb your home</Link>
+                <Link>Help</Link>
+              </div>
+            )}
           </div>
         </div>
       </header>
