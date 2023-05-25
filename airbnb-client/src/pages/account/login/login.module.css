@@ -109,3 +109,17 @@ form p span {
     background-color: #fff;
     padding: 0 0.5rem;
 }
+
+.register {
+    text-align: left;
+    line-height: 1;
+    border: none;
+    font-size: smaller;
+    margin: 0.4rem;
+    padding: 0 0.3rem;
+}
+
+.register a {
+    color: #ff385c;
+    text-decoration: underline;
+}

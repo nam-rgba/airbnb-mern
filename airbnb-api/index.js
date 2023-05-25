@@ -1,29 +1,33 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 const User = require("./models/User");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
+const jwtSecret = "AJwefD809uasdj29a8ASasj28S";
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
+
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5173",
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    optionsSuccessStatus: 204,
+  })
+);
 
 app.use(express.json());
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: "http://127.0.0.1:5173",
-//   })
-// );
 
 console.log(process.env.MONGO_URL);
 //0n772csUcpn9EfCI
@@ -47,11 +51,33 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post("/login", (rep, res) => {
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
-  res.json({ email, password });
+  console.log(email);
+  try {
+    const userDoc = await User.findOne({ email });
+    if (userDoc) {
+      const checkPs = bcrypt.compareSync(password, userDoc.password);
+      if (checkPs) {
+        jwt.sign(
+          { email: userDoc.email, id: userDoc._id },
+          jwtSecret,
+          {},
+          (error, token) => {
+            if (error) {
+              throw error;
+            }
+            res.cookie("token", token).json("pass ok");
+            console.log("ok");
+          }
+        );
+      } else {
+        res.status(422).json("pass is not same");
+      }
+    } else {
+      res.json("user not found");
+    }
+  } catch (error) {}
 });
 
 app.listen(4000);
-//test git

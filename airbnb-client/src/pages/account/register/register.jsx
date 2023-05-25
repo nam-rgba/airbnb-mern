@@ -82,6 +82,11 @@ const RegisterPage = () => {
           </p>
 
           <button className={style.git}>Continue with Github</button>
+
+          <p className={style.register}>
+            If your already have a account,{" "}
+            <Link to="/account/login">Login here</Link>{" "}
+          </p>
         </form>
       </div>
     </div>
