@@ -48,14 +48,14 @@ export default function Header() {
 
           <div className={style.account_btn} onClick={expandAccount}>
             <BsList />
-            <Link to="/account/login">
+            <Link>
               <FaUserCircle />
             </Link>
 
             {account && (
               <div className={style.account_expand}>
-                <Link>Login</Link>
-                <Link>Register</Link>
+                <Link to={"/account/login"}>Login</Link>
+                <Link to={"/account/register"}>Register</Link>
                 <Link>Airbnb your home</Link>
                 <Link>Help</Link>
               </div>

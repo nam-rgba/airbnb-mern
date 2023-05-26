@@ -7,9 +7,6 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 const app = express();
 
-const bcryptSalt = bcrypt.genSaltSync(10);
-const jwtSecret = "AJwefD809uasdj29a8ASasj28S";
-
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
 //   res.header(
@@ -21,13 +18,17 @@ const jwtSecret = "AJwefD809uasdj29a8ASasj28S";
 
 app.use(
   cors({
-    origin: "http://127.0.0.1:5173",
+    origin: "http://localhost:5173",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
+    credentials: true,
   })
 );
 
 app.use(express.json());
+
+const bcryptSalt = bcrypt.genSaltSync(10);
+const jwtSecret = "AJwefD809uasdj29a8ASasj28S";
 
 console.log(process.env.MONGO_URL);
 //0n772csUcpn9EfCI
@@ -67,7 +68,14 @@ app.post("/login", async (req, res) => {
             if (error) {
               throw error;
             }
-            res.cookie("token", token).json("pass ok");
+            res
+              .cookie("token", token, {
+                httpOnly: true,
+                maxAge: 3600 * 1000,
+                secure: true,
+                sameSite: "strict",
+              })
+              .json("pass ok");
             console.log("ok");
           }
         );

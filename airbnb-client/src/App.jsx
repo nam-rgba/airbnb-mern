@@ -6,7 +6,7 @@ import axios from "axios";
 import LayoutAccount from "./pages/account/layout.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:4000";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 function App() {
   return (

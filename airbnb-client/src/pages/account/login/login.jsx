@@ -1,5 +1,5 @@
 import style from "./login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Image from "../../../Image";
 import { useState } from "react";
 import axios from "axios";
@@ -7,16 +7,15 @@ import axios from "axios";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "/login",
-        { email, password },
-        { withCredentials: true }
-      );
+      await axios.post("/login", { email, password });
       alert("Login successfully");
+      // setRedirect(true);
+      return navigate("/");
     } catch (error) {
       alert("Login failed!");
     }
