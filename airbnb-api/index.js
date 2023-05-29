@@ -70,12 +70,11 @@ app.post("/login", async (req, res) => {
             }
             res
               .cookie("token", token, {
-                httpOnly: true,
                 maxAge: 3600 * 1000,
-                secure: true,
-                sameSite: "strict",
+                // secure: true,
+                // sameSite: "none",
               })
-              .json("pass ok");
+              .json(userDoc);
             console.log("ok");
           }
         );

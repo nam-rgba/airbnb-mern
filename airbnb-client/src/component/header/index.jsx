@@ -5,10 +5,12 @@ import { FaUserCircle } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import style from "./header.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function Header() {
   const [account, setAccount] = useState(false);
+  const { user } = useContext(UserContext);
 
   const expandAccount = () => {
     setAccount(!account);
@@ -54,10 +56,18 @@ export default function Header() {
 
             {account && (
               <div className={style.account_expand}>
-                <Link to={"/account/login"}>Login</Link>
-                <Link to={"/account/register"}>Register</Link>
-                <Link>Airbnb your home</Link>
-                <Link>Help</Link>
+                {user == null ? (
+                  <>
+                    <Link to={"/account/login"}>Login</Link>
+                    <Link to={"/account/register"}>Register</Link>
+                    <Link>Airbnb your home</Link>
+                    <Link>Help</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link>Log out</Link>
+                  </>
+                )}
               </div>
             )}
           </div>

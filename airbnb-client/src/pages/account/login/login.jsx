@@ -1,18 +1,25 @@
 import style from "./login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Image from "../../../Image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { UserContext } from "../../../contexts/UserContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser } = useContext(UserContext);
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/login", { email, password });
+      const userDoc = await axios.post(
+        "/login",
+        { email, password },
+        { withCredentials: true }
+      );
+      setUser(userDoc.data);
       alert("Login successfully");
       // setRedirect(true);
       return navigate("/");
