@@ -149,3 +149,10 @@ a {
 .account_expand a:hover {
     background-color: #d6d6d6;
 }
+
+.account_expand a span {
+    text-transform: uppercase;
+    color: #ff3838;
+    font-size: 90%;
+    font-weight: bold;
+}

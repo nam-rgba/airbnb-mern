@@ -15,6 +15,7 @@ export default function Header() {
   const expandAccount = () => {
     setAccount(!account);
   };
+  console.log(user);
   return (
     <>
       <header>
@@ -65,7 +66,14 @@ export default function Header() {
                   </>
                 ) : (
                   <>
-                    <Link>Log out</Link>
+                    <Link>
+                      2023 Summer Release <span>New</span>
+                    </Link>
+                    <Link>Message</Link>
+                    <Link>
+                      {" "}
+                      View my profile <span> {user.name}</span>
+                    </Link>
                   </>
                 )}
               </div>
