@@ -156,3 +156,80 @@ a {
     font-size: 90%;
     font-weight: bold;
 }
+
+/* Navbar bottom */
+.bottom_navbar {
+    position: fixed;
+    bottom: 0;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    border-top: 2px solid #d6d6d6;
+    display: none;
+}
+
+.bottom_navbar div,
+.bottom_navbar div a {
+    height: 100%;
+    /* width: auto; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #4f4f4f;
+}
+
+.bottom_navbar div p {
+    font-size: 80%;
+    color: #3f3f3f;
+}
+
+/* Responsive */
+
+@media screen and (max-width:1150px) {
+    header {
+        padding: 1.5rem;
+    }
+
+    .logo {
+        width: 15%;
+    }
+
+    .find {
+        width: 40%;
+    }
+
+    .setting {
+        width: 30%;
+    }
+
+    .yourhome {
+        max-height: 1rem;
+        inline-size: 100%;
+        overflow: hidden;
+        width: fit-content;
+        word-break: normal;
+    }
+
+}
+
+@media screen and (max-width: 743px) {
+
+    .bottom_navbar {
+        display: flex;
+    }
+
+    .logo,
+    .setting {
+        display: none;
+
+    }
+
+    .find {
+        width: 100%;
+    }
+
+}

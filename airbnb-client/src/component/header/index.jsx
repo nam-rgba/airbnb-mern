@@ -1,8 +1,8 @@
 import Image from "../../Image";
 import { TfiWorld } from "react-icons/tfi";
-import { BsList } from "react-icons/bs";
+import { BsList, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch, BiSearchAlt, BiUser } from "react-icons/bi";
 import style from "./header.module.css";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -81,6 +81,27 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      <div className={style.bottom_navbar}>
+        <div className={style.explore}>
+          <Link to="/">
+            <BiSearchAlt />
+            <p>Explore</p>
+          </Link>
+        </div>
+        <div className={style.login}>
+          <Link to="/account/login">
+            <BiUser />
+            <p>Login</p>
+          </Link>
+        </div>
+        <div className={style.wishlist}>
+          <Link to="/accout/wishlist">
+            <BsFillBookmarkHeartFill />
+            <p>Wishlist</p>
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
