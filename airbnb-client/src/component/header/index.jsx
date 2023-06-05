@@ -4,16 +4,23 @@ import { BsList, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
 import { BiSearch, BiSearchAlt, BiUser } from "react-icons/bi";
 import style from "./header.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import axios from "axios";
 
 export default function Header({ hide }) {
   const [account, setAccount] = useState(false);
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const expandAccount = () => {
     setAccount(!account);
+  };
+
+  const logout = async () => {
+    await axios.post("/logout");
+    return navigate("/account/login");
   };
   console.log(user);
   return (
@@ -77,6 +84,7 @@ export default function Header({ hide }) {
                       {" "}
                       View my profile <span> {user.name}</span>
                     </Link>
+                    <Link onClick={logout}>Log out</Link>
                   </>
                 )}
               </div>
