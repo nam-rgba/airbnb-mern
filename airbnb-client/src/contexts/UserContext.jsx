@@ -5,6 +5,8 @@ export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
+
+  // Asycn/await
   // useEffect(() => {
   //   const fetchData = async () => {
   //     if (!user) {
@@ -14,15 +16,16 @@ export function UserContextProvider({ children }) {
   //   };
   //   const userData = fetchData();
   //   setUser(userData);
-  // }, []);
+  // }, [user]);
 
+  // Then
   useEffect(() => {
     if (!user) {
       axios.get("/profile").then(({ data }) => {
         setUser(data);
       });
     }
-  }, []);
+  }, [user]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
