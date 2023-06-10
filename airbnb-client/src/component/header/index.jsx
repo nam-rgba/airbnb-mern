@@ -22,7 +22,6 @@ export default function Header({ hide }) {
     await axios.post("/logout");
     return navigate("/account/login");
   };
-  console.log(user);
   return (
     <>
       <header>
@@ -34,17 +33,18 @@ export default function Header({ hide }) {
 
         {hide !== "find" && (
           <>
-            <div className={style.find}></div>
-            <div className={style.where}>
-              <p>Any where</p>
-            </div>
-            <div className={style.week}>
-              <p>Any week</p>
-            </div>
-            <div className={style.search}>
-              <p>Add geust</p>
-              <div>
-                <BiSearch />
+            <div className={style.find}>
+              <div className={style.where}>
+                <p>Any where</p>
+              </div>
+              <div className={style.week}>
+                <p>Any week</p>
+              </div>
+              <div className={style.search}>
+                <p>Add geust</p>
+                <div>
+                  <BiSearch />
+                </div>
               </div>
             </div>
           </>

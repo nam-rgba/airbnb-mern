@@ -8,15 +8,6 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
 app.use(
   cors({
     origin: "http://localhost:5173",

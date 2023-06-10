@@ -2,6 +2,7 @@ import style from "./profile.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import Image from "../../../Image";
 
 export default function ProfilePage() {
   const { user, ready } = useContext(UserContext);
@@ -15,7 +16,18 @@ export default function ProfilePage() {
 
   return (
     <>
-      <div className={style.info}></div>
+      <div className={style.info}>
+        <section className={style.card}>
+          <div className={style.avt}>
+            <Image name="profile" type="jpeg" />
+            <h3>{user.name}</h3>
+            <p>Guest</p>
+          </div>
+          <div className={style.verification}></div>
+        </section>
+
+        <section className={style.create_profile}></section>
+      </div>
 
       <div className={style.action}></div>
     </>
