@@ -1,0 +1,27 @@
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    max-width: 30%;
+    margin-left: 5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avt {
+    padding: 10%;
+    width: 50%;
+}
+
+.avt img {
+    max-width: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 999px;
+}
