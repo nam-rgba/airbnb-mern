@@ -3,12 +3,13 @@ import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 import { useNavigate, Link } from "react-router-dom";
 import Image from "../../../Image";
+import { MdOutlineDone } from "react-icons/md";
 
 export default function ProfilePage() {
   const { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
 
-  if (ready && !user) {
+  if (!ready && !user) {
     return navigate("/account/login");
   } else if (!ready) {
     return <p>Loading...</p>;
@@ -24,12 +25,16 @@ export default function ProfilePage() {
             <p>Guest</p>
           </div>
           <div className={style.verification}>
-            <h4>{user.name} confirmed infomation </h4>
+            <h3>Your confirmed infomation </h3>
+            <span>
+              <MdOutlineDone />
+              <p>Email address</p>
+            </span>
           </div>
         </section>
 
         <section className={style.create_profile}>
-          <h3> It is time to create your profile </h3>
+          <h2> It is time to create your profile </h2>
           <p>
             Your Airbnb profile is an important part of every reservation.
             Create yours to help other Hosts and guests get to know you.
