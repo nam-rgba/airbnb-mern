@@ -52,7 +52,7 @@ export default function Header({ hide }) {
 
         <div className={style.setting}>
           <div className={style.yourhome}>
-            <a href="">Airbnb your home</a>
+            <Link to="/host">Airbnb your home</Link>
           </div>
 
           <div className={style.language_btn}>
