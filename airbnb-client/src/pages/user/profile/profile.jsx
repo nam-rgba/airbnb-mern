@@ -9,7 +9,7 @@ export default function ProfilePage() {
   const { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
 
-  if (!ready && !user) {
+  if (ready && !user) {
     return navigate("/account/login");
   } else if (!ready) {
     return <p>Loading...</p>;
