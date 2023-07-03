@@ -8,7 +8,7 @@ import LayoutUser from "./pages/user/layout.jsx";
 import { UserContextProvider } from "./contexts/UserContext.jsx";
 import ProfilePage from "./pages/user/profile/profile.jsx";
 import Host from "./pages/host/Host.jsx";
-import Post from "./pages/host/post";
+import Post from "./pages/host/post/Post";
 
 axios.defaults.baseURL = "http://127.0.0.1:4000";
 axios.defaults.withCredentials = true;
@@ -27,7 +27,7 @@ function App() {
             <Route path="profile" element={<ProfilePage />} />
           </Route>
           <Route path="host" element={<Host />}>
-            <Route path="post" element={<Post />} />
+            <Route path="new" element={<Post />} />
           </Route>
         </Routes>
       </UserContextProvider>

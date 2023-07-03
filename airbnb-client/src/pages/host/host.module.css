@@ -1,7 +1,7 @@
 .header {
     height: 5rem;
     border: none;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     display: flex;
@@ -43,10 +43,10 @@
 
 .setup div {
     font-weight: 600;
-    line-height: 20px;
+    line-height: 18px;
     display: flex;
     align-items: center;
-    color: #222222;
+    color: #3d3d3d;
     white-space: nowrap;
     font-size: 16px;
     padding: 2rem 0;
@@ -61,11 +61,15 @@
     color: #ffffff;
     background-color: #ff385c;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     align-self: center;
 }
 
 .btn svg path {
     color: #fff;
+}
+
+.earning {
+    display: flex;
 }
