@@ -26,15 +26,19 @@ export default function Host() {
         <div className={style.txt1}>
           <div className={style.title1}>
             <span>Airbnb it.</span>
+            <br />
             You could earn
             <div>$182</div>
           </div>
           <div className="">
             <span>7 nights</span>
             at an estimated 26$ per nigth
+            <br />
             <Link> Learn how we estimate your earnings</Link>
           </div>
         </div>
+
+        <div className={style.map}></div>
       </section>
     </>
   );
