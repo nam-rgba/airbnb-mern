@@ -67,6 +67,8 @@ export default function Host() {
           )}
         </div>
       </section>
+
+      <section className={style.easysetupS}></section>
     </>
   );
 }
