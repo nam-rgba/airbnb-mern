@@ -1,3 +1,4 @@
+import { useState } from "react";
 import style from "./type.module.css";
 import { FaUmbrellaBeach, FaSwimmingPool } from "react-icons/fa";
 import {
@@ -10,63 +11,67 @@ import {
 } from "react-icons/gi";
 
 export default function Type() {
+  const [current, setCurrent] = useState("1");
+
   const typeList = [
     {
+      id: "1",
       icon: FaUmbrellaBeach,
       describe: "Beach view",
-      isFocus: 1,
     },
     {
+      id: "2",
       icon: FaSwimmingPool,
       describe: "Pool",
-      isFocus: 0,
     },
     {
+      id: "3",
       icon: GiCastleRuins,
       describe: "Castles",
-      isFocus: 0,
     },
     {
+      id: "4",
       icon: GiForestCamp,
       describe: "Camping",
-      isFocus: 0,
     },
+    { id: "5", icon: GiHomeGarage, describe: "Car park" },
     {
-      icon: GiHomeGarage,
-      describe: "Car park",
-      isFocus: 0,
-    },
-    {
+      id: "6",
       icon: GiParkBench,
       describe: "Park",
-      isFocus: 0,
     },
     {
+      id: "7",
       icon: GiTreehouse,
       describe: "Tree House",
-      isFocus: 0,
     },
     {
+      id: "8",
       icon: GiBirchTrees,
       describe: "Trees",
-      isFocus: 0,
     },
+    { id: "9", icon: GiTreehouse, describe: "Tree House" },
     {
-      icon: GiTreehouse,
-      describe: "Tree House",
-      isFocus: 0,
-    },
-    {
+      id: "10",
       icon: GiBirchTrees,
       describe: "Trees",
-      isFocus: 0,
     },
   ];
 
-  const renderType = (type, index) => {
+  const handleTypeChange = (id) => {
+    setCurrent(id);
+    console.log(current);
+  };
+
+  const renderType = (type) => {
     const Icon = type.icon;
     return (
-      <div className={style.type} key={index}>
+      <div
+        id={type.id}
+        className={type.id === current ? style.typeFocus : style.type}
+        key={type.id}
+        onClick={() => handleTypeChange(type.id)}
+      >
         <Icon />
         <p>{type.describe}</p>
       </div>
@@ -76,7 +81,7 @@ export default function Type() {
   return (
     <>
       <div className={style.container}>
-        {typeList.map((type, index) => renderType(type, index))}
+        {typeList.map((type) => renderType(type))}
       </div>
     </>
   );
