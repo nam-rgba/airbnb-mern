@@ -1,0 +1,19 @@
+.container {
+    width: 22vw;
+    height: 40vh;
+}
+
+.images,
+.mark,
+.slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}

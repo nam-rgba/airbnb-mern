@@ -17,13 +17,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-sizing: content-box;
 }
 
 
-.type p,
-.typeFocus p {
+
+
+.type p {
     color: #717171;
-    font-size: 14px;
+    font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0.2rem 0rem;
 }
@@ -33,13 +35,14 @@
 }
 
 .type:hover p,
-.type:focus p {
+.typeFocus p {
     color: #3d3d3d;
+
 }
 
 
 .typeFocus {
-    box-sizing: content-box;
+    box-sizing: border-box;
     border-bottom: 2px solid #3d3d3d;
     max-width: 9%;
     height: 100%;
@@ -48,4 +51,5 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-size: 14px;
 }

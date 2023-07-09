@@ -1,5 +1,6 @@
 import { useState } from "react";
 import style from "./type.module.css";
+import { IconContext } from "react-icons/lib";
 import { FaUmbrellaBeach, FaSwimmingPool } from "react-icons/fa";
 import {
   GiBirchTrees,
@@ -72,7 +73,11 @@ export default function Type() {
         key={type.id}
         onClick={() => handleTypeChange(type.id)}
       >
-        <Icon />
+        <IconContext.Provider value={{ color: "gray" }}>
+          <div>
+            <Icon color="#717171" fontSize="1.5em" />
+          </div>
+        </IconContext.Provider>
         <p>{type.describe}</p>
       </div>
     );
