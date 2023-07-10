@@ -1,6 +1,7 @@
 .container {
-    width: 22vw;
-    height: 40vh;
+    width: 20vw;
+    height: 16rem;
+    margin-left: 1rem;
 }
 
 .images,
@@ -11,9 +12,53 @@
     overflow: hidden;
 }
 
+.images {
+    margin-bottom: 1rem;
+}
+
 .slider img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.infomation {
+    /* position: relative; */
+}
+
+.position {
+    font-weight: 600;
+    text-align: left;
+    font-size: 15px;
+    width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
+
+.distance,
+.date {
+    color: #717171;
+    text-align: left;
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.price {
+    text-align: left;
+    font-size: 16px;
+}
+
+.price span {
+    /* text-decoration: underline; */
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.infoma>span {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
