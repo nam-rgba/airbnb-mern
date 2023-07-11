@@ -1,11 +1,13 @@
 .container {
     width: 20vw;
-    height: 16rem;
-    margin-left: 1rem;
+    margin: 1rem;
 }
 
-.images,
-.mark,
+.mark {
+    width: 100%;
+    height: 16rem;
+}
+
 .slider {
     width: 100%;
     height: 100%;
@@ -24,7 +26,8 @@
 }
 
 .infomation {
-    /* position: relative; */
+    position: relative;
+    margin-top: 0.5rem;
 }
 
 .position {
@@ -57,7 +60,7 @@
     font-size: 15px;
 }
 
-.infoma>span {
+.infomation>span {
     position: absolute;
     top: 0;
     right: 0;
