@@ -8,8 +8,12 @@ import LayoutUser from "./pages/user/layout.jsx";
 import { UserContextProvider } from "./contexts/UserContext.jsx";
 import ProfilePage from "./pages/user/profile/profile.jsx";
 import Host from "./pages/host/Host.jsx";
-import Post from "./pages/host/post/Post";
 import Hosting from "./pages/hosting/hosting.jsx";
+import Main from "./pages/hosting/main/main.jsx";
+import Inbox from "./pages/hosting/inbox/inbox.jsx";
+import Insights from "./pages/hosting/insights/insights.jsx";
+import Listing from "./pages/hosting/listing/listing.jsx";
+import BecomeAHost from "./pages/host/become-a-host/become-a-host.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:4000";
 axios.defaults.withCredentials = true;
@@ -28,10 +32,15 @@ function App() {
             <Route path="profile" element={<ProfilePage />} />
           </Route>
           <Route path="host" element={<Host />}>
-            <Route path="new" element={<Post />} />
+            <Route path="become-a-host" element={<BecomeAHost />}></Route>
           </Route>
 
-          <Route path="hosting" element={<Hosting />}></Route>
+          <Route path="hosting" element={<Hosting />}>
+            <Route path="main" element={<Main />} />
+            <Route path="inbox" element={<Inbox />} />
+            <Route path="insights" element={<Insights />} />
+            <Route path="listing" element={<Listing />} />
+          </Route>
         </Routes>
       </UserContextProvider>
     </>
