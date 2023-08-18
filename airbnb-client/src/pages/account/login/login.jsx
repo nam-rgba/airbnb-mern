@@ -20,6 +20,8 @@ const LoginPage = () => {
         { withCredentials: true }
       );
       setUser(userDoc.data);
+      console.log(userDoc.data);
+
       alert("Login successfully");
       // setRedirect(true);
       return navigate("/");
