@@ -9,6 +9,7 @@ import axios from "axios";
 import CryptoJS from "crypto-js";
 
 export default function Host() {
+  // State for HMAC
   const [email, setEmail] = useState("");
   const [hmac, setHmac] = useState("");
   const [key, setkey] = useState("");
@@ -22,27 +23,29 @@ export default function Host() {
     []
   );
 
+  // Generate HMAC with crypto-js function
   function generateHMAC(message, secretKey) {
     console.log(message);
     const hmac = CryptoJS.HmacSHA256(message, secretKey);
     const hmacBase64 = hmac.toString(CryptoJS.enc.Base64);
     return hmacBase64;
   }
-
+  // Handle submit email
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const secretKey = { key: import.meta.env.VITE_SECRET_KEY_HMAC };
-    console.log(secretKey.key);
-    const clientHmac = generateHMAC(email, secretKey.key);
+    // Get secret key from .env file
+    const secretKey = "298";
+    // Generate HMAC
+    const clientHmac = generateHMAC(email, secretKey);
     setHmac(clientHmac);
+    // Send HMAC to server to check and get response
     try {
       const mailRegis = await axios.post(
         "/hmacRegis",
         { email, clientHmac },
         { withCredentials: true }
       );
-
+      // Alert result
       alert(`${mailRegis.data.result}, hmac code is ${mailRegis.data.hmac}`);
       console.log(mailRegis.data);
     } catch (error) {
@@ -51,10 +54,14 @@ export default function Host() {
     }
   };
 
+  // Attacking HMAC use Brute Force function
   const handleAttack = async () => {
     for (let i = 0; i < 1000; i++) {
+      //Generate space of key
       const potentialKey = i.toString();
+      // Generate HMAC with each key
       const hmacGuess = generateHMAC(email, potentialKey);
+      // Compare
       if (hmacGuess == hmac) {
         setkey(potentialKey);
         return;

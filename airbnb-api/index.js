@@ -83,22 +83,21 @@ app.post("/login", async (req, res) => {
   } catch (error) {}
 });
 
+// Get email and check with HMAC
 app.post("/hmacRegis", async (req, res) => {
   // Get message, hmac from request
   const { email, clientHmac } = req.body;
 
+  // Get secret key from .env file
   const secretKey = process.env.SECRET_KEY_HMAC;
+  // Generate HMAC with crypto library
   const hmac = crypto
     .createHmac("sha256", secretKey)
     .update(email)
     .digest("base64");
-
+  // Pack data
   const data = { email: email, hmac: hmac, result: "" };
-
-  console.log(email);
-  console.log(hmac);
-  console.log(clientHmac);
-
+  // Check HMAC and send response
   if (hmac == clientHmac) {
     data.result = "True HMAC";
     res.json(data);
