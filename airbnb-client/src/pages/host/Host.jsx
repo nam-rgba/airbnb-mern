@@ -10,6 +10,8 @@ import CryptoJS from "crypto-js";
 
 export default function Host() {
   const [email, setEmail] = useState("");
+  const [hmac, setHmac] = useState("");
+  const [key, setkey] = useState("");
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.GOOGLE_KEY_MAP,
@@ -28,9 +30,12 @@ export default function Host() {
   }
 
   const handleSubmit = async (e) => {
-    const secretKey = "key";
-    const clientHmac = generateHMAC(email, secretKey);
     e.preventDefault();
+
+    const secretKey = { key: import.meta.env.VITE_SECRET_KEY_HMAC };
+    console.log(secretKey.key);
+    const clientHmac = generateHMAC(email, secretKey.key);
+    setHmac(clientHmac);
     try {
       const mailRegis = await axios.post(
         "/hmacRegis",
@@ -38,12 +43,22 @@ export default function Host() {
         { withCredentials: true }
       );
 
-      alert(mailRegis.data.result);
+      alert(`${mailRegis.data.result}, hmac code is ${mailRegis.data.hmac}`);
       console.log(mailRegis.data);
-      // setRedirect(true);
     } catch (error) {
       console.log(error);
       alert("Failed!");
+    }
+  };
+
+  const handleAttack = async () => {
+    for (let i = 0; i < 1000; i++) {
+      const potentialKey = i.toString();
+      const hmacGuess = generateHMAC(email, potentialKey);
+      if (hmacGuess == hmac) {
+        setkey(potentialKey);
+        return;
+      }
     }
   };
 
@@ -100,6 +115,14 @@ export default function Host() {
                 <RiSendPlaneFill color="#ffffff" />
               </button>
             </form>
+          </div>
+          <div className={style.attack}>
+            <button className={style.attackbtn} onClick={handleAttack}>
+              Brute Force Attack
+            </button>
+            <div className={style.key}>
+              The key was used is <span>{key}</span>{" "}
+            </div>
           </div>
         </div>
 

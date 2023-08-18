@@ -12,6 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://airbnb-mern-fe.vercel.app",
+    // origin: "http://localhost:5173",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
     credentials: true,
@@ -83,8 +84,10 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/hmacRegis", async (req, res) => {
+  // Get message, hmac from request
   const { email, clientHmac } = req.body;
-  const secretKey = "key";
+
+  const secretKey = process.env.SECRET_KEY_HMAC;
   const hmac = crypto
     .createHmac("sha256", secretKey)
     .update(email)
