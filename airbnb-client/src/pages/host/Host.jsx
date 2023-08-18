@@ -34,9 +34,9 @@ export default function Host() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Get secret key from .env file
-    const secretKey = "298";
+    // const secretKey = { key: import.meta.env.VITE_SECRET_KEY_HMAC };
     // Generate HMAC
-    const clientHmac = generateHMAC(email, secretKey);
+    const clientHmac = generateHMAC(email, "298");
     setHmac(clientHmac);
     // Send HMAC to server to check and get response
     try {
