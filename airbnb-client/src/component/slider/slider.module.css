@@ -1,0 +1,69 @@
+.containerslider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity ease-in-out 0.4s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide_activeanm {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity ease-in-out 0.2s;
+}
+
+.containerslider:hover .next,
+.containerslider:hover .previous {
+    opacity: 1;
+}
+
+.next {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity ease-in 0.1s;
+}
+
+.next:hover {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.previous {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity ease-in 0.1s;
+}
+
+.previous:hover {
+    background-color: transparent;
+    box-shadow: none;
+}

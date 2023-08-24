@@ -1,26 +1,26 @@
 import style from "./card.module.css";
-import Image from "../../Image.jsx";
 import { AiFillStar } from "react-icons/ai";
+import Slider from "../slider/slider";
 
-export default function Card({ star }) {
+export default function Card({ place }) {
   return (
     <div className={style.container}>
       <div className={style.mark}>
         <div className={style.slider}>
-          <Image name="temp" type="webp" />
+          <Slider place={place} />
         </div>
       </div>
 
       <div className={style.infomation}>
-        <div className={style.position}>Tambon Pha Nok Khao, Thailand</div>
-        <div className={style.distance}>620 kilometers away</div>
-        <div className={style.date}>Jul 15-20</div>
+        <div className={style.position}>{place.place}</div>
+        <div className={style.distance}>{place.distance}</div>
+        <div className={style.date}>{place.timeAvailoble}</div>
         <div className={style.price}>
-          <span>$26</span> nights
+          <span>{place.price}$ </span> nights
         </div>
         <span>
           {" "}
-          <AiFillStar /> {star}
+          <AiFillStar /> {place.review}
         </span>
       </div>
     </div>

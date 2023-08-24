@@ -2,17 +2,18 @@ import Header from "../../component/header/index";
 import Type from "../../component/typeFilters/type";
 import Card from "../../component/placeCard/card";
 import style from "./home.module.css";
+import data from "../../assets/fakedata/places.json";
 
 const Home = () => {
-  const stars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  console.log(stars);
+  const places = data.place;
+
   return (
     <>
       <Header hide="" />
       <Type />
       <div className={style.places}>
-        {stars.map((star) => (
-          <Card star={star} key={star} />
+        {places.map((place) => (
+          <Card key={place.place} place={place} />
         ))}
       </div>
     </>
