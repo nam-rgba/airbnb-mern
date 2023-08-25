@@ -7,18 +7,6 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [ready, setReady] = useState(false);
 
-  // Asycn/await
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     if (!user) {
-  //       const { userData } = await axios.get("/profile");
-  //       return userData;
-  //     }
-  //   };
-  //   const userData = fetchData();
-  //   setUser(userData);
-  // }, [user]);
-
   // Then
   useEffect(() => {
     if (!user) {

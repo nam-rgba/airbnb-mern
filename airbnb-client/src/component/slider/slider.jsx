@@ -8,7 +8,6 @@ export default function Slider({ place }) {
   const nextSlide = () => {
     if (slide !== place.image.length) {
       setSlide(slide + 1);
-      console.log("+");
     } else {
       setSlide(1);
     }
@@ -27,7 +26,6 @@ export default function Slider({ place }) {
   return (
     <div className={style.containerslider}>
       {place.image.map((image, index) => {
-        console.log(image);
         return (
           <div
             key={index}

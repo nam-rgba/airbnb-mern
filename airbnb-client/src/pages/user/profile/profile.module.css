@@ -16,14 +16,18 @@
     align-items: center;
 }
 
-.avt,
+
 .verification {
     padding: 10%;
     width: 50%;
     border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-bottom: 2rem;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.avt {
+    width: 65%;
 }
 
 .avt h3 {
@@ -40,14 +44,19 @@
 
 .verification h3 {
     padding-bottom: 0.2rem;
-    border-bottom: 1px solid #a7a7a7;
 }
 
 .verification span {
     display: flex;
     flex-direction: row;
-    margin: 0.5rem;
-    font-size: large;
+    margin: 1rem 0.5rem;
+    font-size: 16px;
+    width: 100%;
+    justify-content: start;
+}
+
+.verification p {
+    margin-left: 1rem;
 }
 
 .create_profile {
@@ -73,9 +82,39 @@
 
 .create_profile button {
     padding: 0.7rem 1rem;
-    background: radial-gradient(circle at 1.2% 5%, rgb(255, 94, 157) 34.7%, rgb(255, 6, 81) 92.3%);
+    background: radial-gradient(circle at 1.2% 5%, rgb(247, 69, 137) 34.7%, rgb(190, 7, 95) 92.3%);
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 105%;
+}
+
+.card_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10%;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.countTime {
+    font-size: 12px;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.countTime p {
+    text-align: left;
+}
+
+.countTime span {
+    font-size: 14px;
+    font-weight: 600;
 }

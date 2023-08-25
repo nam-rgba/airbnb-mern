@@ -8,6 +8,14 @@ import { MdOutlineDone } from "react-icons/md";
 export default function ProfilePage() {
   const { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
+  const time = () => {
+    const now = Date.parse(new Date());
+    const timeCreate = Date.parse(user.timeCreate);
+    const totals = now - timeCreate;
+    console.log(now);
+    console.log(timeCreate);
+    return Math.floor(totals / 86400000) + 1;
+  };
 
   if (ready && !user) {
     return navigate("/account/login");
@@ -19,17 +27,33 @@ export default function ProfilePage() {
     <>
       <div className={style.info}>
         <section className={style.card}>
-          <div className={style.avt}>
-            <Image name="profile" type="jpeg" />
-            <h3>{user.name}</h3>
-            <p>Guest</p>
+          <div className={style.card_info}>
+            <div className={style.avt}>
+              <Image name="profile" type="jpeg" />
+              <h3>{user.name}</h3>
+              <p>Guest</p>
+            </div>
+            <div className={style.countTime}>
+              <span>{time()}</span>
+              <p> days on Airbnb!</p>{" "}
+            </div>
           </div>
           <div className={style.verification}>
-            <h3>Your confirmed infomation </h3>
-            <span>
-              <MdOutlineDone />
-              <p>Email address</p>
-            </span>
+            <div className={style.email}>
+              <h3>Your confirmed infomation </h3>
+              <span>
+                <MdOutlineDone />
+                <p>Email address</p>
+              </span>
+            </div>
+            <div className={style.identify}>
+              <h3>Verify your identity </h3>
+
+              <p>
+                Before you book or Host on Airbnb, you’ll need to complete this
+                step.
+              </p>
+            </div>
           </div>
         </section>
 

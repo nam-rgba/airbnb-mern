@@ -80,7 +80,7 @@ export default function Header({ hide }) {
                       2023 Summer Release <span>New</span>
                     </Link>
                     <Link>Message</Link>
-                    <Link>
+                    <Link to={"/user/profile"}>
                       {" "}
                       View my profile <span> {user.name}</span>
                     </Link>

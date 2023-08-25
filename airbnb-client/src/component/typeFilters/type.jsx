@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./type.module.css";
 import { IconContext } from "react-icons/lib";
-import { FaUmbrellaBeach, FaSwimmingPool } from "react-icons/fa";
+import { FaUmbrellaBeach, FaFireAlt } from "react-icons/fa";
 import {
   GiBirchTrees,
   GiCastleRuins,
@@ -9,7 +9,11 @@ import {
   GiHomeGarage,
   GiTreehouse,
   GiParkBench,
+  GiGolfFlag,
+  GiChefToque,
 } from "react-icons/gi";
+import { TbBrandGoogleHome } from "react-icons/tb";
+import { BiSwim } from "react-icons/bi";
 
 export default function Type() {
   const [current, setCurrent] = useState("1");
@@ -22,7 +26,7 @@ export default function Type() {
     },
     {
       id: "2",
-      icon: FaSwimmingPool,
+      icon: BiSwim,
       describe: "Pool",
     },
     {
@@ -52,10 +56,26 @@ export default function Type() {
       describe: "Trees",
     },
     { id: "9", icon: GiTreehouse, describe: "Tree House" },
+
     {
-      id: "10",
-      icon: GiBirchTrees,
-      describe: "Trees",
+      id: "11",
+      icon: TbBrandGoogleHome,
+      describe: "Cabins",
+    },
+    {
+      id: "12",
+      icon: GiGolfFlag,
+      describe: "Golfs",
+    },
+    {
+      id: "13",
+      icon: FaFireAlt,
+      describe: "trending",
+    },
+    {
+      id: "14",
+      icon: GiChefToque,
+      describe: "Great kitchen",
     },
   ];
 

@@ -6,7 +6,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1.4rem 2.5rem;
-    border-bottom: 2px #d6d6d6 solid;
+    border-bottom: 1px #d6d6d6 solid;
 }
 
 .logo,
@@ -136,6 +136,7 @@ a {
     box-shadow: rgba(0, 0, 0, 0.14) 0px 3px 8px;
     border-radius: 10px;
     transition: all 0.2s;
+    z-index: 10;
 }
 
 .account_expand a {
