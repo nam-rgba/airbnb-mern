@@ -15,6 +15,7 @@ const staysSchema = new mongoose.Schema({
   reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: Review }],
   price: Number,
   deals: Number,
+  properties: [String],
 });
 
 const StayModel = mongoose.model("Stay", staysSchema);

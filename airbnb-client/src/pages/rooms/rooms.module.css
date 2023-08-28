@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.content {
+    width: 100%;
+    padding: 0rem 2rem;
+}
+
+.content section {
+    width: 100%;
+    height: fit-content;
+}
+
+.se1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.se1 div {
+    width: 100%;
+}
+
+.se1 .text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.text .overview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.overview .title {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+}
+
+.overview_review {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+}
+
+.overview_review div {
+    width: max-content;
+}

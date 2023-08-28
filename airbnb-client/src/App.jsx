@@ -14,6 +14,7 @@ import Inbox from "./pages/hosting/inbox/inbox.jsx";
 import Insights from "./pages/hosting/insights/insights.jsx";
 import Listing from "./pages/hosting/listing/listing.jsx";
 import BecomeAHost from "./pages/host/become-a-host/become-a-host.jsx";
+import Room from "./pages/rooms/rooms.jsx";
 
 // axios.defaults.baseURL = "https://airbnb-mern-nu.vercel.app";
 axios.defaults.baseURL = "http://127.0.0.1:4000";
@@ -42,6 +43,7 @@ function App() {
             <Route path="insights" element={<Insights />} />
             <Route path="listing" element={<Listing />} />
           </Route>
+          <Route path="rooms/:id" element={<Room />} />
         </Routes>
       </UserContextProvider>
     </>
