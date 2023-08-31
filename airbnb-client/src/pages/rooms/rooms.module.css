@@ -1,12 +1,13 @@
 .container {
     width: 100%;
     height: auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .content {
     width: 100%;
-    padding: 0rem 2rem;
+    padding: 0rem 5rem;
+    box-sizing: border-box;
 }
 
 .content section {
@@ -38,6 +39,7 @@
     width: 100%;
     align-items: flex-start;
     justify-content: left;
+    margin-top: 2rem;
 }
 
 .overview .title {
@@ -56,4 +58,77 @@
 
 .overview_review div {
     width: max-content;
+    margin-right: 0.6rem;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.overview .star {
+    font-weight: 600;
+}
+
+.overview_review .place {
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 18%;
+}
+
+.action div {
+    margin-right: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.action div svg {
+    margin-right: 0.3rem;
+}
+
+.photos {
+    width: 100%;
+    height: 300px;
+    border-radius: 1rem;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.photos .big {
+    width: 49.75%;
+    height: 100%;
+}
+
+.photos .small {
+    width: 49.75%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.photos .small div {
+    width: 49%;
+    height: 49%;
+}
+
+.photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
