@@ -70,7 +70,7 @@ export default function Room() {
           </div>
         </section>
 
-        <section className={style.detail_and_payment}>
+        <section className={style.detail_and_checkout}>
           <div className={style.detail}>
             <div className={style.hosted}>
               <div className={style.text}>
@@ -84,6 +84,7 @@ export default function Room() {
               </div>
             </div>
           </div>
+          <div className={style.checkout}></div>
         </section>
       </div>
     </div>
