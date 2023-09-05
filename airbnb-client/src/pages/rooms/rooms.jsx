@@ -4,15 +4,50 @@ import style from "./rooms.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { BiMedal } from "react-icons/bi";
 import { FiShare } from "react-icons/fi";
-import { BsFillHouseHeartFill } from "react-icons/bs";
+import { BsFillHouseHeartFill, BsDoorOpen } from "react-icons/bs";
+import { GiSwimfins } from "react-icons/gi";
+import { MdTableRestaurant } from "react-icons/md";
 import Image from "../../Image";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import data from "../../assets/fakedata/places.json";
+import { IconContext } from "react-icons/lib";
 
 export default function Room() {
-  const id = useParams();
   const place = data.place[1];
-  console.log(id);
+  const services = [
+    {
+      icon: MdTableRestaurant,
+      name: "Dedicated workspace",
+      description: "A common area with wifi that well suit for working",
+    },
+    {
+      icon: GiSwimfins,
+      name: "Dive right in",
+      description: "This is one of few places in the area with pool",
+    },
+    {
+      icon: BsDoorOpen,
+      name: "Self check-in",
+      description: "You can check in with the building staff",
+    },
+  ];
+
+  const renderService = (service) => {
+    const Icon = service.icon;
+    return (
+      <div key={service.name} className={style.service}>
+        <IconContext.Provider value={{ color: "black" }}>
+          <div>
+            <Icon color="#3d3d3d" fontSize="2em" />
+          </div>
+        </IconContext.Provider>
+        <div className={style.text_service}>
+          <h3>{service.name}</h3>
+          <p>{service.description}</p>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className={style.container}>
       <Header hide={"none"} />
@@ -82,6 +117,11 @@ export default function Room() {
                   <Image name={"profile"} type={"jpeg"} />
                 </div>
               </div>
+            </div>
+            <div className={style.services}>
+              {services.map((service) => {
+                renderService(service);
+              })}
             </div>
           </div>
           <div className={style.checkout}></div>

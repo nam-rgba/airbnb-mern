@@ -81,7 +81,6 @@ export default function Type() {
 
   const handleTypeChange = (id) => {
     setCurrent(id);
-    console.log(current);
   };
 
   const renderType = (type) => {

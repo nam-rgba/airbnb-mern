@@ -26,9 +26,9 @@ export default function Header({ hide }) {
     <>
       <header>
         <div className={style.logo}>
-          <a href="">
+          <Link to={"/"}>
             <Image name="airbnb" type="svg" />
-          </a>
+          </Link>
         </div>
 
         {hide !== "find" && (
