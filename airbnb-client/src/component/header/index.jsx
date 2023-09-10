@@ -11,6 +11,7 @@ import axios from "axios";
 
 export default function Header({ hide }) {
   const [account, setAccount] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -33,7 +34,12 @@ export default function Header({ hide }) {
 
         {hide !== "find" && (
           <>
-            <div className={style.find}>
+            <div
+              className={style.find}
+              onClick={() => {
+                setShowSearch(!showSearch);
+              }}
+            >
               <div className={style.where}>
                 <p>Any where</p>
               </div>

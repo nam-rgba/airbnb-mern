@@ -6,6 +6,7 @@ import axios from "axios";
 import LayoutAccount from "./pages/account/layout.jsx";
 import LayoutUser from "./pages/user/layout.jsx";
 import { UserContextProvider } from "./contexts/UserContext.jsx";
+import { SearchbarContextProvider } from "./contexts/SearchbarContext.jsx";
 import ProfilePage from "./pages/user/profile/profile.jsx";
 import Host from "./pages/host/Host.jsx";
 import Hosting from "./pages/hosting/hosting.jsx";
@@ -24,27 +25,29 @@ function App() {
   return (
     <>
       <UserContextProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="account" element={<LayoutAccount />}>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
-          <Route path="user" element={<LayoutUser />}>
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
-          <Route path="host" element={<Host />}>
-            <Route path="become-a-host" element={<BecomeAHost />}></Route>
-          </Route>
+        <SearchbarContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="account" element={<LayoutAccount />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
+            </Route>
+            <Route path="user" element={<LayoutUser />}>
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
+            <Route path="host" element={<Host />}>
+              <Route path="become-a-host" element={<BecomeAHost />}></Route>
+            </Route>
 
-          <Route path="hosting" element={<Hosting />}>
-            <Route path="main" element={<Main />} />
-            <Route path="inbox" element={<Inbox />} />
-            <Route path="insights" element={<Insights />} />
-            <Route path="listing" element={<Listing />} />
-          </Route>
-          <Route path="rooms/:id" element={<Room />} />
-        </Routes>
+            <Route path="hosting" element={<Hosting />}>
+              <Route path="main" element={<Main />} />
+              <Route path="inbox" element={<Inbox />} />
+              <Route path="insights" element={<Insights />} />
+              <Route path="listing" element={<Listing />} />
+            </Route>
+            <Route path="rooms/:id" element={<Room />} />
+          </Routes>
+        </SearchbarContextProvider>
       </UserContextProvider>
     </>
   );
