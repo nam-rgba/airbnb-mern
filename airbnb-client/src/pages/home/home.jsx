@@ -11,23 +11,24 @@ const Home = () => {
   const { show, setShow } = useContext(SearchbarContext);
 
   return (
-    <>
+    <div className={style.container}>
       <Header hide="" />
-      <div className={style.search_container}>
-        {show && (
-          <div className={style.search_main}>
-            <div className={style.tabs_bar}></div>
-          </div>
-        )}
-        ;
+      <div className={style.content}>
+        <div className={show ? style.search_container : style.search_none}>
+          {show && (
+            <div className={style.search_main}>
+              <div className={style.tabs_bar}></div>
+            </div>
+          )}
+        </div>
+        <Type />
+        <div className={style.places}>
+          {places.map((place) => (
+            <Card key={place.place} place={place} />
+          ))}
+        </div>
       </div>
-      <Type />
-      <div className={style.places}>
-        {places.map((place) => (
-          <Card key={place.place} place={place} />
-        ))}
-      </div>
-    </>
+    </div>
   );
 };
 

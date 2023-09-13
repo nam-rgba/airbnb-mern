@@ -8,11 +8,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
+import { SearchbarContext } from "../../contexts/SearchbarContext";
 
 export default function Header({ hide }) {
   const [account, setAccount] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const { user } = useContext(UserContext);
+  const { show, setShow } = useContext(SearchbarContext);
   const navigate = useNavigate();
 
   const expandAccount = () => {
@@ -37,7 +38,7 @@ export default function Header({ hide }) {
             <div
               className={style.find}
               onClick={() => {
-                setShowSearch(!showSearch);
+                setShow(!show);
               }}
             >
               <div className={style.where}>
