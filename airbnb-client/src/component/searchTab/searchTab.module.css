@@ -1,0 +1,8 @@
+.container {
+    width: 60%;
+    z-index: 101;
+    height: 80vh;
+    background-color: white;
+    font-size: 14px;
+    line-height: 20px;
+}

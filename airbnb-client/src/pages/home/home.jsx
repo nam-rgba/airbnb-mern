@@ -1,6 +1,7 @@
 import Header from "../../component/header/index";
 import Type from "../../component/typeFilters/type";
 import Card from "../../component/placeCard/card";
+import SearchTab from "../../component/searchTab/SearchTabs";
 import style from "./home.module.css";
 import data from "../../assets/fakedata/places.json";
 import { useContext } from "react";
@@ -15,11 +16,7 @@ const Home = () => {
       <Header hide="" />
       <div className={style.content}>
         <div className={show ? style.search_container : style.search_none}>
-          {show && (
-            <div className={style.search_main}>
-              <div className={style.tabs_bar}></div>
-            </div>
-          )}
+          {show && <SearchTab />}
         </div>
         <Type />
         <div className={style.places}>
