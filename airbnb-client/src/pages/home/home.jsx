@@ -9,7 +9,7 @@ import { SearchbarContext } from "../../contexts/SearchbarContext";
 
 const Home = () => {
   const places = data.place;
-  const { show, setShow } = useContext(SearchbarContext);
+  const { show } = useContext(SearchbarContext);
 
   return (
     <div className={style.container}>
