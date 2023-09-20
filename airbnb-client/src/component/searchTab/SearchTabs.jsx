@@ -19,7 +19,7 @@ export default function SearchTab() {
         ))}
       </div>
       <div className={style.outlet}>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<p></p>}>
           <Outlet />
         </Suspense>
       </div>
