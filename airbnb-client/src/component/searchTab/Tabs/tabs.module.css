@@ -24,3 +24,12 @@
     text-align: left;
     padding: 0.2rem 1.3rem;
 }
+
+.result_where {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 1rem;
+    justify-content: space-between;
+}

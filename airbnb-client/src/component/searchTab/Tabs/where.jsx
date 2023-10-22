@@ -14,7 +14,7 @@ export default function Where() {
       <div className={style.search_input}>
         <input type="text" placeholder="Somewhere only we know..." />
       </div>
-      <div className={style.result}>
+      <div className={style.result_where}>
         {countries.map((country) => (
           <CountriesCard
             key={country.id}
