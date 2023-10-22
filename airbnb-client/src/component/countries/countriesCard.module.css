@@ -6,6 +6,7 @@
     width: 23%;
     overflow: hidden;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 
 .map :hover {
@@ -19,13 +20,17 @@
     border: none;
     border-radius: 1rem;
     overflow: hidden;
-    transition: box-shadow cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: box-shadow;
 }
 
-.map :hover {
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+.cardContainer :hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .map img {
     width: 100%;
+}
+
+.name {
+    text-transform: capitalize;
 }
