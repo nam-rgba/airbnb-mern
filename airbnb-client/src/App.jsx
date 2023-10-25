@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { SearchbarContextProvider } from "./contexts/SearchbarContext.jsx";
 import { UserContextProvider } from "./contexts/UserContext.jsx";
+
 import axios from "axios";
 import Home from "./pages/home/home.jsx";
 const LoginPage = lazy(() => import("./pages/account/login/login.jsx"));
