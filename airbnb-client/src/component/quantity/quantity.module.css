@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 50%;
+    height: 22%;
+    border-bottom: 1px solid #d3d2d2;
+    padding-bottom: 0.2rem;
+}
+
+.customer {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem
+}
+
+.customer p {
+    color: #717171;
+}
+
+.quantity {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.change_qtt {
+    border: 1px solid #a4a4a4;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    cursor: pointer;
+}
+
+.change_qtt:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
