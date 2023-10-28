@@ -1,9 +1,14 @@
-import loadable from "react-loadable";
-import { IconBaseProps, IconType } from "react-icons/lib";
+import { Suspense, lazy } from "react";
+import { IconContext } from "react-icons";
 
-export default function Icon({ nameIcon, propIcon }) {
-  const lib = nameIcon
-    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
-    .split(" ")[0]
-    .toLocaleLowerCase();
-}
+const DynamicIcon = ({ props }) => {
+  const [library, icon] = props.icon.split("/");
+  if (!library || !icon) {
+    return <div>Cannot find icon</div>;
+  }
+  const path = `react-icons/${library}`;
+  const Icon = lazy(async () => {
+    const module = await import(path);
+    return module[icon];
+  });
+};
