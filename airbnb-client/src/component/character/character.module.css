@@ -2,12 +2,32 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+
 }
 
 .icon {
     width: 20%;
+    height: 100%;
 }
 
 .info {
     width: 80%;
+
+}
+
+.info div {
+    text-align: left;
+}
+
+.info .name {
+    font-family: 'Jost', sans-serif;
+    font-size: 17px;
+    color: #3d3d3d;
+}
+
+.info .describe {
+    font-size: 14px;
+    color: #717171;
 }

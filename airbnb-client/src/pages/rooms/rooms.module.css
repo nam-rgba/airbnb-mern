@@ -197,3 +197,37 @@
     flex-direction: row;
 
 }
+
+.character {
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 2rem;
+    height: auto;
+}
+
+.about {
+    padding: 1rem;
+    border-bottom: 1px solid #dddddd;
+
+}
+
+.about .text {
+    height: 4rem;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* Required for webkit browsers */
+    -webkit-line-clamp: 3;
+    /* Set the number of lines before truncation */
+    -webkit-box-orient: vertical;
+}
+
+.seemore {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ import style from "./rooms.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { BiMedal } from "react-icons/bi";
 import { FiShare } from "react-icons/fi";
+import {HiOutlineArrowDownRight} from 'react-icons/hi2'
 import { BsFillHouseHeartFill } from "react-icons/bs";
 import Image from "../../Image";
 // import { useParams } from "react-router-dom";
@@ -16,19 +17,19 @@ export default function Room() {
   const characters = [
     {
       id: 1,
-      icon: "Door",
+      icon: "door",
       name: "Self check-in",
       describe: "Check yourself in with the lockbox.",
     },
     {
       id: 2,
-      icon: "Medal",
+      icon: "medal",
       name: "Nam is a Superhost",
       describe: "Superhosts are experienced, highly rated Hosts.",
     },
     {
       id: 3,
-      icon: "Location",
+      icon: "local",
       name: "Great location",
       describe: "100% of recent guests gave the location a 5-star rating.",
     },
@@ -105,8 +106,22 @@ export default function Room() {
               </div>
             </div>
 
-            <div className={style.character}></div>
+            <div className={style.character}>
+              {characters.map((cha)=>(
+                <Character key={cha.id} icon={cha.icon} name={cha.name} describe={cha.describe}/>
+              ))}
+            </div>
+            <div className={style.about}>
+                <div className={style.text}>
+                A stunningly situated 3 bedroom house, overlooking idyllic Polurrian Beach on the edge of the Lizard. The perfect spot for a magic Cornwall family holiday, the secluded comfy three bed house has incredible sea views and direct access to one of the Lizards prettiest beaches. Theres also a lovely garden and large private field to walk the dog. A short walk to the south-west coastal path, nearby surf spots and great food in Porthleven, theres something for everyone.
+                </div>
+                <div className={style.seemore}>
+                  <p>Show more </p>
+                  <HiOutlineArrowDownRight size={14}/>
+                </div>
+            </div>
           </div>
+
           <div className={style.checkout}></div>
         </section>
       </div>
