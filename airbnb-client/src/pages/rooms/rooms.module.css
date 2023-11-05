@@ -31,6 +31,7 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
+    line-height: 26px;
 }
 
 .text .overview {
@@ -40,6 +41,7 @@
     align-items: flex-start;
     justify-content: left;
     margin-top: 2rem;
+    color: #3d3d3d;
 }
 
 .overview .title {
