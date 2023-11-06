@@ -1,0 +1,44 @@
+.container {
+    width: 80%;
+    border: 1px solid #dddddd;
+    border-radius: 1rem;
+    height: fit-content;
+    padding: 2rem 1rem;
+}
+
+.charg_pernight_review {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pernight {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.pernight span {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.review {
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.review span {
+    margin-left: 0.6rem;
+}
+
+.review .review_star {
+    font-weight: 600;
+}
+
+.review_quantity {
+    color: #9f9e9e;
+
+}
+
+.date_guest {}

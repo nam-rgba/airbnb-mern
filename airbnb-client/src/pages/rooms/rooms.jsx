@@ -10,9 +10,10 @@ import Image from "../../Image";
 // import { useParams } from "react-router-dom";
 import data from "../../assets/fakedata/places.json";
 import Character from "../../component/character/character";
+import Charged from "../../component/chagred/chagred";
 
 export default function Room() {
-  const place = data.place[1];
+  const place = data.place[0];
 
   const characters = [
     {
@@ -122,7 +123,9 @@ export default function Room() {
             </div>
           </div>
 
-          <div className={style.checkout}></div>
+          <div className={style.checkout}>
+            <Charged price={place.price}/>
+          </div>
         </section>
       </div>
     </div>
