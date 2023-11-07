@@ -50,9 +50,9 @@ export default function Charged(props){
         </div>
         <div className={style.button_notes}>
             <button>Reserve</button>
-            <div>
+            <p>
             You will not be charged yet
-            </div>
+            </p>
         </div>
         <div className={style.bill}>
             <div>

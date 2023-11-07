@@ -140,6 +140,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    width: 100%;
 }
 
 .detail {
@@ -185,6 +186,11 @@
 
 .checkout {
     width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 3rem;
+
 }
 
 .services {

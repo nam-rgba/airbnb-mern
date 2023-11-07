@@ -11,8 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://airbnb-mern-fe.vercel.app",
-    // origin: "http://localhost:5173",
+    // origin: "https://airbnb-mern-fe.vercel.app",
+    origin: "http://localhost:5173",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
     credentials: true,
