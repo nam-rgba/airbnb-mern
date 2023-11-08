@@ -31,6 +31,7 @@ const Home = () => {
         <Type />
         <div className={style.places}>
           {places.map((place) => (
+            
             <Card key={place.place} place={place} />
           ))}
         </div>

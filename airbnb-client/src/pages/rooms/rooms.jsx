@@ -11,9 +11,12 @@ import Image from "../../Image";
 import data from "../../assets/fakedata/places.json";
 import Character from "../../component/character/character";
 import Charged from "../../component/chagred/chagred";
+import { useParams } from "react-router-dom";
 
 export default function Room() {
-  const place = data.place[0];
+  const idRoom=useParams();
+  console.log(idRoom)
+  const place = data.place[idRoom.id-1];
 
   const characters = [
     {
