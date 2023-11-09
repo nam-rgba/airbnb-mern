@@ -28,7 +28,9 @@ const Home = () => {
             <SearchTab />
           </OutsideCloser>
         </div>
-        <Type />
+        <div className={style.type_wrap}>
+          <Type />
+        </div>
         <div className={style.places}>
           {places.map((place) => (
             
