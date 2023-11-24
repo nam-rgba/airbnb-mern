@@ -9,6 +9,7 @@
     justify-content: space-around;
     margin: auto;
     padding-top: 1rem;
+    overflow: hidden;
 }
 
 .type {

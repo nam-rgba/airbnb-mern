@@ -20,7 +20,6 @@ export default function Where() {
 
   const handleInputSearch = (e) => {
     setSearchKey(e.target.value);
-    console.log(searchKey);
   };
   return (
     <div className={style.container}>
