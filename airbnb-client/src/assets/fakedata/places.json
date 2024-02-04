@@ -12,7 +12,8 @@
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/9801f819-6195-4b68-880c-d91f78eb861a.jpeg?im_w=1200",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/2945f395-552f-4e62-9bb8-ebae020c9b8f.jpeg?im_w=1200"
       ],
-      "review": "5.0"
+      "review": "5.0",
+      "type": "forest"
     },
     {
       "id": "2",
@@ -26,7 +27,8 @@
         "https://a0.muscache.com/im/pictures/miso/Hosting-701497672425802721/original/f9d762a2-5d47-4af7-8b37-376ca936b204.jpeg?im_w=1200",
         "https://a0.muscache.com/im/pictures/miso/Hosting-701497672425802721/original/cf57d590-01a3-47eb-8254-117500fd2637.jpeg?im_w=1200"
       ],
-      "review": "4.9"
+      "review": "4.9",
+      "type": "beach view"
     },
     {
       "id": "3",
@@ -40,7 +42,8 @@
         "https://a0.muscache.com/im/pictures/miso/Hosting-936818571459983141/original/8c585184-acf5-4ef1-89b3-a990159681e8.jpeg?im_w=1200",
         "https://a0.muscache.com/im/pictures/miso/Hosting-936818571459983141/original/2368d0ea-31f1-4f88-b259-fe547f32b43f.jpeg?im_w=1200"
       ],
-      "review": "5.0"
+      "review": "5.0",
+      "type": "cabin"
     },
     {
       "id": "4",
@@ -54,13 +57,14 @@
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-949247329190714515/original/7ccfabb9-4c81-45dc-8db4-3b568b9a4e7f.jpeg?im_w=1200",
         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-949247329190714515/original/c188a9a1-10e4-433d-9a00-c1fa0626fa9b.jpeg?im_w=1200"
       ],
-      "review": "5.0"
+      "review": "5.0",
+      "type": "cabin"
     },
     {
       "id": "5",
-      "place":"Jibhi, India",
-      "distance":"3800 kilometers",
-      "timeAvailoble":"Jan 4-9",
+      "place": "Jibhi, India",
+      "distance": "3800 kilometers",
+      "timeAvailoble": "Jan 4-9",
       "price": 96,
       "image": [
         "https://a0.muscache.com/im/pictures/miso/Hosting-23780166/original/365774f1-239d-4db5-9e81-68bd37587e28.jpeg?im_w=1200",
@@ -68,7 +72,9 @@
         "https://a0.muscache.com/im/pictures/miso/Hosting-23780166/original/633a023a-ab4b-425e-9209-6bb982fc39b0.jpeg?im_w=1200",
         "https://a0.muscache.com/im/pictures/b77f4131-3438-441b-af75-947e3a2e11a6.jpg?im_w=1200",
         "https://a0.muscache.com/im/pictures/71e60322-e99b-490a-9f3e-fc71f1cd494c.jpg?im_w=1200"
-      ]
+      ],
+      "review": "4.0",
+      "type": "trending"
     }
   ]
 }

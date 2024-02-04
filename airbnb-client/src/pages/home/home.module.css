@@ -1,8 +1,7 @@
 .places {
     width: 100%;
     height: max-content;
-    padding: 1rem;
-    max-width: 100vw;
+    padding: 2rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,7 +22,7 @@
 }
 
 .search_container {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-color: rgba(217, 216, 216, 0.3);
     backdrop-filter: blur(3px);

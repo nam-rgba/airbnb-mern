@@ -1,7 +1,7 @@
-import { useState } from "react";
-import style from "./type.module.css";
-import { IconContext } from "react-icons/lib";
-import { FaUmbrellaBeach, FaFireAlt } from "react-icons/fa";
+import { useState } from 'react';
+import style from './type.module.css';
+import { IconContext } from 'react-icons/lib';
+import { FaUmbrellaBeach, FaFireAlt } from 'react-icons/fa';
 import {
   GiBirchTrees,
   GiCastleRuins,
@@ -10,73 +10,74 @@ import {
   GiTreehouse,
   GiParkBench,
   GiGolfFlag,
-  GiChefToque,
-} from "react-icons/gi";
-import { TbBrandGoogleHome } from "react-icons/tb";
-import { BiSwim } from "react-icons/bi";
+  GiChefToque
+} from 'react-icons/gi';
+import { TbBrandGoogleHome } from 'react-icons/tb';
+import { BiSwim } from 'react-icons/bi';
 
 export default function Type() {
-  const [current, setCurrent] = useState("1");
+  const [current, setCurrent] = useState('1');
+  const defaultColor = '#717171';
 
   const typeList = [
     {
-      id: "1",
+      id: '1',
       icon: FaUmbrellaBeach,
-      describe: "Beach view",
+      describe: 'Beach view'
     },
     {
-      id: "2",
+      id: '2',
       icon: BiSwim,
-      describe: "Pool",
+      describe: 'Pool'
     },
     {
-      id: "3",
+      id: '3',
       icon: GiCastleRuins,
-      describe: "Castles",
+      describe: 'Castles'
     },
     {
-      id: "4",
+      id: '4',
       icon: GiForestCamp,
-      describe: "Camping",
+      describe: 'Camping'
     },
-    { id: "5", icon: GiHomeGarage, describe: "Car park" },
+    { id: '5', icon: GiHomeGarage, describe: 'Car park' },
     {
-      id: "6",
+      id: '6',
       icon: GiParkBench,
-      describe: "Park",
+      describe: 'Park'
     },
     {
-      id: "7",
+      id: '7',
       icon: GiTreehouse,
-      describe: "Tree House",
+      describe: 'Tree House'
     },
     {
-      id: "8",
+      id: '8',
       icon: GiBirchTrees,
-      describe: "Trees",
+      describe: 'Forest'
     },
-    { id: "9", icon: GiTreehouse, describe: "Tree House" },
+    { id: '9', icon: GiTreehouse, describe: 'Tree House' },
 
     {
-      id: "11",
+      id: '11',
       icon: TbBrandGoogleHome,
-      describe: "Cabins",
+      describe: 'Cabins'
     },
     {
-      id: "12",
+      id: '12',
       icon: GiGolfFlag,
-      describe: "Golfs",
+      describe: 'Golfs'
     },
     {
-      id: "13",
+      id: '13',
       icon: FaFireAlt,
-      describe: "trending",
+      describe: 'trending'
     },
     {
-      id: "14",
+      id: '14',
       icon: GiChefToque,
-      describe: "Great kitchen",
-    },
+      describe: 'Great kitchen'
+    }
   ];
 
   const handleTypeChange = (id) => {
@@ -92,9 +93,12 @@ export default function Type() {
         key={type.id}
         onClick={() => handleTypeChange(type.id)}
       >
-        <IconContext.Provider value={{ color: "gray" }}>
+        <IconContext.Provider value={{ color: 'gray' }}>
           <div>
-            <Icon color="#717171" fontSize="1.5em" />
+            <Icon
+              color={type.id === current ? '#ff385c' : defaultColor}
+              fontSize="1.5em"
+            />
           </div>
         </IconContext.Provider>
         <p>{type.describe}</p>

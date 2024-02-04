@@ -2,14 +2,16 @@
 
 .container {
     width: 94%;
-    height: 10vh;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     margin: auto;
     padding-top: 1rem;
-    overflow: hidden;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
 }
 
 .type {
@@ -20,7 +22,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: none;
+    transition: border-bottom linear 0.05s;
+    box-sizing: content-box;
 }
 
 
@@ -35,7 +39,7 @@
 }
 
 .type:hover {
-    border-bottom: 2px solid #717171;
+    border-bottom: 1px solid #717171;
 }
 
 .type:hover p,
@@ -53,15 +57,21 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-bottom: 2px solid #3d3d3d;
-    transition: border-bottom ease-in-out 0.4s;
+    border-bottom: 1px solid var(--primary-color);
+    transition: all ease-in-out 0.05s;
+    color: var(--primary-color);
 }
 
 .typeFocus p {
-    color: #3d3d3d;
-    font-size: 13px;
+    /* color: #3d3d3d; */
+    color: var(--primary-color);
+    font-size: 12px;
     font-family: 'Lato', sans-serif;
     margin: 0.2rem 0rem;
+}
+
+.typeFocus>svg {
+    color: var(--primary-color);
 }
 
 @media screen and (max-width: 414px) {
