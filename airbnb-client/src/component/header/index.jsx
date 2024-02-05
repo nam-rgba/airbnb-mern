@@ -1,14 +1,16 @@
-import Image from "../../Image";
-import { TfiWorld } from "react-icons/tfi";
-import { BsList, BsFillBookmarkHeartFill } from "react-icons/bs";
-import { FaUserCircle } from "react-icons/fa";
-import { BiSearch, BiSearchAlt, BiUser } from "react-icons/bi";
-import style from "./header.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import axios from "axios";
-import { SearchbarContext } from "../../contexts/SearchbarContext";
+import Image from '../../Image';
+import style from './header.module.css';
+import { UserContext } from '../../contexts/UserContext';
+import { SearchbarContext } from '../../contexts/SearchbarContext';
+
+import { TfiWorld } from 'react-icons/tfi';
+import { BsList, BsFillBookmarkHeartFill } from 'react-icons/bs';
+import { FaUserCircle } from 'react-icons/fa';
+import { BiSearch, BiSearchAlt, BiUser } from 'react-icons/bi';
+
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import axios from 'axios';
 
 export default function Header({ hide }) {
   const [account, setAccount] = useState(false);
@@ -16,29 +18,31 @@ export default function Header({ hide }) {
   const { show, setShow } = useContext(SearchbarContext);
   const navigate = useNavigate();
 
+  console.log(show);
+
   const expandAccount = () => {
     setAccount(!account);
   };
 
   const logout = async () => {
-    await axios.post("/logout");
-    return navigate("/account/login");
+    await axios.post('/logout');
+    return navigate('/account/login');
   };
   return (
     <>
       <header>
         <div className={style.logo}>
-          <Link to={"/"}>
+          <Link to={'/'}>
             <Image name="airbnb" type="svg" />
           </Link>
         </div>
 
-        {hide !== "find" && (
+        {hide !== 'find' && (
           <>
             <div
               className={style.find}
               onClick={() => {
-                setShow(!show);
+                setShow((prev) => !prev);
               }}
             >
               <div className={style.where}>
@@ -76,8 +80,8 @@ export default function Header({ hide }) {
               <div className={style.account_expand}>
                 {user == null ? (
                   <>
-                    <Link to={"/account/login"}>Login</Link>
-                    <Link to={"/account/register"}>Register</Link>
+                    <Link to={'/account/login'}>Login</Link>
+                    <Link to={'/account/register'}>Register</Link>
                     <Link>Airbnb your home</Link>
                     <Link>Help</Link>
                   </>
@@ -87,8 +91,8 @@ export default function Header({ hide }) {
                       2023 Summer Release <span>New</span>
                     </Link>
                     <Link>Message</Link>
-                    <Link to={"/user/profile"}>
-                      {" "}
+                    <Link to={'/user/profile'}>
+                      {' '}
                       View my profile <span> {user.name}</span>
                     </Link>
                     <Link onClick={logout}>Log out</Link>
