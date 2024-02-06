@@ -1,7 +1,8 @@
 import Image from '../../Image';
 import style from './header.module.css';
 import { UserContext } from '../../contexts/UserContext';
-import { SearchbarContext } from '../../contexts/SearchbarContext';
+import useClickOutSide from '../../hooks/useClickOutSide';
+import SearchTab from '../searchTab/SearchTabs';
 
 import { TfiWorld } from 'react-icons/tfi';
 import { BsList, BsFillBookmarkHeartFill } from 'react-icons/bs';
@@ -9,28 +10,29 @@ import { FaUserCircle } from 'react-icons/fa';
 import { BiSearch, BiSearchAlt, BiUser } from 'react-icons/bi';
 
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import axios from 'axios';
 
 export default function Header({ hide }) {
-  const [account, setAccount] = useState(false);
   const { user } = useContext(UserContext);
-  const { show, setShow } = useContext(SearchbarContext);
   const navigate = useNavigate();
-
-  console.log(show);
-
-  const expandAccount = () => {
-    setAccount(!account);
-  };
+  const [ref, visible, toogleVisible] = useClickOutSide();
+  const [ref2, visible2, toogleVisible2] = useClickOutSide(false);
 
   const logout = async () => {
     await axios.post('/logout');
     return navigate('/account/login');
   };
+
+  const handleClick = () => {
+    console.log('excute 1 ' + visible);
+
+    toogleVisible();
+  };
   return (
     <>
       <header>
+        {/* branch section */}
         <div className={style.logo}>
           <Link to={'/'}>
             <Image name="airbnb" type="svg" />
@@ -38,13 +40,8 @@ export default function Header({ hide }) {
         </div>
 
         {hide !== 'find' && (
-          <>
-            <div
-              className={style.find}
-              onClick={() => {
-                setShow((prev) => !prev);
-              }}
-            >
+          <div className={style.search_bounding} ref={ref2}>
+            <div className={style.find} onClick={() => toogleVisible2()}>
               <div className={style.where}>
                 <p>Any where</p>
               </div>
@@ -58,25 +55,29 @@ export default function Header({ hide }) {
                 </div>
               </div>
             </div>
-          </>
+            {visible2 && (
+              <div className={style.search_tab}>
+                <SearchTab />
+              </div>
+            )}
+          </div>
         )}
 
+        {/* settin section */}
         <div className={style.setting}>
           <div className={style.yourhome}>
             <Link to="/host">Airbnb your home</Link>
           </div>
-
           <div className={style.language_btn}>
             <TfiWorld />
           </div>
+          <div className={style.account_btn} onClick={handleClick} ref={ref}>
+            <div className={style.account_icon}>
+              <BsList size={16} />
+              <FaUserCircle size={16} />
+            </div>
 
-          <div className={style.account_btn} onClick={expandAccount}>
-            <BsList />
-            <Link>
-              <FaUserCircle />
-            </Link>
-
-            {account && (
+            {visible && (
               <div className={style.account_expand}>
                 {user == null ? (
                   <>
@@ -104,6 +105,7 @@ export default function Header({ hide }) {
         </div>
       </header>
 
+      {/* for bottom navbar when is mobile device */}
       <div className={style.bottom_navbar}>
         <div className={style.explore}>
           <Link to="/">

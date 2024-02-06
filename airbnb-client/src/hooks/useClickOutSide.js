@@ -1,18 +1,29 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 
-const useClickOutSide = (ref, callback) => {
-  const handleClick = (e) => {
-    if (ref.current && !ref.current.contains(e.target)) {
-      callback();
-    }
-  };
+const useClickOutSide = (initVisible = false) => {
+  const [visible, setVisible] = useState(initVisible);
+  const ref = useRef(null);
+
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setVisible(false);
+      }
+    },
+    [setVisible]
+  );
+
+  const toogleVisible = useCallback(() => {
+    setVisible((prevVisible) => !prevVisible);
+  }, [setVisible]);
 
   useEffect(() => {
-    document.addEventListener('click', handleClick);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClick);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  });
-};
+  }, [handleClickOutside]);
 
+  return [ref, visible, toogleVisible];
+};
 export default useClickOutSide;
