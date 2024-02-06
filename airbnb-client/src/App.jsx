@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SearchbarContextProvider } from './contexts/SearchbarContext.jsx';
 import { UserContextProvider } from './contexts/UserContext.jsx';
 
 import axios from 'axios';
@@ -31,31 +30,29 @@ function App() {
   return (
     <>
       <UserContextProvider>
-        <SearchbarContextProvider>
-          <Suspense fallback={<div>Page is loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="account" element={<LayoutAccount />}>
-                <Route path="login" element={<LoginPage />} />
-                <Route path="register" element={<RegisterPage />} />
-              </Route>
-              <Route path="user" element={<LayoutUser />}>
-                <Route path="profile" element={<ProfilePage />} />
-              </Route>
-              <Route path="host" element={<Host />}>
-                <Route path="become-a-host" element={<BecomeAHost />}></Route>
-              </Route>
+        <Suspense fallback={<div>Page is loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="account" element={<LayoutAccount />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
+            </Route>
+            <Route path="user" element={<LayoutUser />}>
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
+            <Route path="host" element={<Host />}>
+              <Route path="become-a-host" element={<BecomeAHost />}></Route>
+            </Route>
 
-              <Route path="hosting" element={<Hosting />}>
-                <Route path="main" element={<Main />} />
-                <Route path="inbox" element={<Inbox />} />
-                <Route path="insights" element={<Insights />} />
-                <Route path="listing" element={<Listing />} />
-              </Route>
-              <Route path="rooms/:id" element={<Room />} />
-            </Routes>
-          </Suspense>
-        </SearchbarContextProvider>
+            <Route path="hosting" element={<Hosting />}>
+              <Route path="main" element={<Main />} />
+              <Route path="inbox" element={<Inbox />} />
+              <Route path="insights" element={<Insights />} />
+              <Route path="listing" element={<Listing />} />
+            </Route>
+            <Route path="rooms/:id" element={<Room />} />
+          </Routes>
+        </Suspense>
       </UserContextProvider>
     </>
   );
