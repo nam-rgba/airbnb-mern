@@ -1,6 +1,7 @@
 import style from './searchTab.module.css';
 import { useState, lazy, Suspense } from 'react';
 import { CiSearch } from 'react-icons/ci';
+import { motion } from 'framer-motion';
 
 export default function SearchTab() {
   const [active, setActive] = useState('where');
@@ -11,7 +12,12 @@ export default function SearchTab() {
     setActive(bar);
   }
   return (
-    <div className={style.container}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={style.container}
+    >
       <div className={style.tabs}>
         {bars.map((bar) => (
           <div
@@ -32,6 +38,6 @@ export default function SearchTab() {
           <Outlet />
         </Suspense>
       </div>
-    </div>
+    </motion.div>
   );
 }

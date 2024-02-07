@@ -13,7 +13,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import axios from 'axios';
 
-export default function Header({ hide }) {
+export default function Header({ hide, whenDisplaySearch }) {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [ref, visible, toogleVisible] = useClickOutSide();
@@ -26,9 +26,15 @@ export default function Header({ hide }) {
 
   const handleClick = () => {
     console.log('excute 1 ' + visible);
-
     toogleVisible();
   };
+
+  const handleClickSearchShow = () => {
+    console.log('excute 2 ' + visible2);
+    toogleVisible2();
+    whenDisplaySearch();
+  };
+
   return (
     <>
       <header>
@@ -41,7 +47,7 @@ export default function Header({ hide }) {
 
         {hide !== 'find' && (
           <div className={style.search_bounding} ref={ref2}>
-            <div className={style.find} onClick={() => toogleVisible2()}>
+            <div className={style.find} onClick={handleClickSearchShow}>
               <div className={style.where}>
                 <p>Any where</p>
               </div>
