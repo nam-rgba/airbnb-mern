@@ -2,12 +2,10 @@ import Header from '../../component/header/index';
 import Type from '../../component/typeFilters/type';
 import Card from '../../component/placeCard/card';
 import style from './home.module.css';
-import data from '../../assets/fakedata/places.json';
 import { useState } from 'react';
+import { places } from '../../utils';
 
 const Home = () => {
-  const places = data.place;
-
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
 
   const whenDisplaySearch = () => {
