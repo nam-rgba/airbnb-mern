@@ -32,7 +32,7 @@ export const places = [
       'https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/2945f395-552f-4e62-9bb8-ebae020c9b8f.jpeg?im_w=1200'
     ],
     review: '5.0',
-    type: 'forest',
+    type: 'camping',
     hoster: sampleData[0]
   },
   {

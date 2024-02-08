@@ -15,73 +15,75 @@ import {
 import { TbBrandGoogleHome } from 'react-icons/tb';
 import { BiSwim } from 'react-icons/bi';
 
-export default function Type() {
+export default function Type({ handleType }) {
   const [current, setCurrent] = useState('1');
   const defaultColor = '#717171';
 
   const typeList = [
     {
-      id: '1',
+      id: '0',
       icon: FaUmbrellaBeach,
       describe: 'Beach view'
     },
     {
-      id: '2',
+      id: '1',
       icon: BiSwim,
       describe: 'Pool'
     },
     {
-      id: '3',
+      id: '2',
       icon: GiCastleRuins,
       describe: 'Castles'
     },
     {
-      id: '4',
+      id: '3',
       icon: GiForestCamp,
       describe: 'Camping'
     },
-    { id: '5', icon: GiHomeGarage, describe: 'Car park' },
+    { id: '4', icon: GiHomeGarage, describe: 'Car park' },
     {
-      id: '6',
+      id: '5',
       icon: GiParkBench,
       describe: 'Park'
     },
     {
-      id: '7',
+      id: '6',
       icon: GiTreehouse,
       describe: 'Tree House'
     },
     {
-      id: '8',
+      id: '7',
       icon: GiBirchTrees,
       describe: 'Forest'
     },
-    { id: '9', icon: GiTreehouse, describe: 'Tree House' },
+    { id: '8', icon: GiTreehouse, describe: 'Tree House' },
 
     {
-      id: '11',
+      id: '9',
       icon: TbBrandGoogleHome,
-      describe: 'Cabins'
+      describe: 'Cabin'
     },
     {
-      id: '12',
+      id: '10',
       icon: GiGolfFlag,
       describe: 'Golfs'
     },
     {
-      id: '13',
+      id: '11',
       icon: FaFireAlt,
       describe: 'trending'
     },
     {
-      id: '14',
+      id: '12',
       icon: GiChefToque,
       describe: 'Great kitchen'
     }
   ];
 
   const handleTypeChange = (id) => {
+    console.log('just call change type to... ' + typeList[id].describe);
     setCurrent(id);
+    handleType(typeList[id].describe.toLowerCase());
   };
 
   const renderType = (type) => {

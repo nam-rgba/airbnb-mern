@@ -2,11 +2,18 @@ import Header from '../../component/header/index';
 import Type from '../../component/typeFilters/type';
 import Card from '../../component/placeCard/card';
 import style from './home.module.css';
-import { useState } from 'react';
-import { places } from '../../utils';
+import { useState, useEffect } from 'react';
+// import { places } from '../../utils';
+import { useFilter } from '../../hooks/useFilter';
 
 const Home = () => {
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
+  const { placeFiltered, handleType } = useFilter();
+
+  useEffect(() => {
+    // This will be called whenever placeFiltered changes
+    console.log('placeFiltered changed:', placeFiltered);
+  }, [placeFiltered]);
 
   const whenDisplaySearch = () => {
     setIsSearchDisplay(!isSearchDisplay);
@@ -24,10 +31,10 @@ const Home = () => {
       <Header hide="" whenDisplaySearch={whenDisplaySearch} />
       <div className={style.content}>
         <div className={style.type_wrap}>
-          <Type />
+          <Type handleType={handleType} />
         </div>
         <div className={style.places}>
-          {places.map((place) => (
+          {placeFiltered.map((place) => (
             <Card key={place.place} place={place} />
           ))}
         </div>
