@@ -1,21 +1,13 @@
-import style from "./tabs.module.css";
-import CountriesCard from "../../countries/countriesCard";
-import { useState } from "react";
-
-const countries = [
-  { id: 1, map: "australia" },
-  { id: 2, map: "europ" },
-  { id: 3, map: "flexible" },
-  { id: 4, map: "southkorea" },
-  { id: 5, map: "unitedstates" },
-  { id: 6, map: "vietnam" },
-];
+import style from './tabs.module.css';
+import CountriesCard from '../../countries/countriesCard';
+import { useState } from 'react';
+import { countries } from '../../../utils';
 
 export default function Where() {
-  const [searchKey, setSearchKey] = useState("");
+  const [searchKey, setSearchKey] = useState('');
 
   const listFilter = countries.filter((country) =>
-    country.map.toLowerCase().includes(searchKey.toLowerCase())
+    country.name.toLowerCase().includes(searchKey.toLowerCase())
   );
 
   const handleInputSearch = (e) => {
@@ -35,8 +27,8 @@ export default function Where() {
         {listFilter.map((country) => (
           <CountriesCard
             key={country.id}
-            name={country.map}
-            map={country.map}
+            name={country.name}
+            displayName={country.nameDisplay}
           />
         ))}
       </div>

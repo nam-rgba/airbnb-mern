@@ -101,3 +101,43 @@ export const places = [
     hoster: sampleData[1]
   }
 ];
+
+const imageNames = [
+  '001-united-kingdom',
+  '002-flexible',
+  '003-united-states',
+  '004-germany',
+  '005-france',
+  '006-china',
+  '007-india',
+  '008-brazil',
+  '009-spain',
+  '010-italy',
+  '011-australia',
+  '012-vietnam',
+  '013-portugal',
+  '014-south-korea',
+  '015-thailand',
+  '016-philippines',
+  '017-poland'
+];
+
+const generateCountryList = () => {
+  const countries = [];
+
+  for (let i = 0; i < 17; i++) {
+    const country = {
+      id: uuidv4(),
+      name: imageNames[i],
+      nameDisplay: imageNames[i]
+        .slice(4, imageNames[i].length)
+        .replace(/-/g, ' ')
+    };
+
+    countries.push(country);
+  }
+
+  return countries;
+};
+
+export const countries = generateCountryList();
