@@ -21,7 +21,7 @@ export const sampleData = generateSampleData();
 export const places = [
   {
     id: '1',
-    place: 'Hamsedel Norway',
+    place: 'Hamsedel, Norway',
     distance: '8000 kilometers',
     timeAvailoble: 'Sep 4-9',
     price: '175',
@@ -33,7 +33,9 @@ export const places = [
     ],
     review: '5.0',
     type: 'camping',
-    hoster: sampleData[0]
+    hoster: sampleData[0],
+    petAble: true,
+    maxGuest: 5
   },
   {
     id: '2',
@@ -49,11 +51,13 @@ export const places = [
     ],
     review: '4.9',
     type: 'beach view',
-    hoster: sampleData[1]
+    hoster: sampleData[1],
+    petAble: false,
+    maxGuest: 3
   },
   {
     id: '3',
-    place: 'Korora Autralia',
+    place: 'Korora, Autralia',
     distance: '3,200 kilometers',
     timeAvailoble: 'Sep 3-8',
     price: '156',
@@ -65,7 +69,9 @@ export const places = [
     ],
     review: '5.0',
     type: 'cabin',
-    hoster: sampleData[2]
+    hoster: sampleData[2],
+    petAble: true,
+    maxGuest: 2
   },
   {
     id: '4',
@@ -81,7 +87,9 @@ export const places = [
     ],
     review: '5.0',
     type: 'cabin',
-    hoster: sampleData[0]
+    hoster: sampleData[0],
+    petAble: true,
+    maxGuest: 4
   },
   {
     id: '5',
@@ -98,7 +106,9 @@ export const places = [
     ],
     review: '4.0',
     type: 'trending',
-    hoster: sampleData[1]
+    hoster: sampleData[1],
+    petAble: false,
+    maxGuest: 3
   }
 ];
 

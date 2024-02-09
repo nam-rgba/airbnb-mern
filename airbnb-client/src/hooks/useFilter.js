@@ -12,23 +12,23 @@ export const useFilter = () => {
     [setPlaceFiltered]
   );
 
-  const handleCountry = useCallback(
-    (value) => {
-      setPlaceFiltered(places.filter((place) => place.country === value));
-    },
-    [setPlaceFiltered]
-  );
+  const handleSearch = useCallback((value) => {
+    const placesInCoutry = places.filter(
+      (place) => place.country === value.country
+    );
+    const placesInPrice = placesInCoutry.filter(
+      (place) =>
+        place.price <= value.price.max && place.price >= value.price.min
+    );
+    const placesInGuest = placesInPrice.filter(
+      (place) => place.guest <= value.maxGuest
+    );
+    let placesInPetAble = placesInGuest;
+    if (value.isPetAble) {
+      placesInPetAble = placesInGuest.filter((place) => place.isPetAble);
+    }
+    setPlaceFiltered(placesInPetAble);
+  }, []);
 
-  const handlePrice = useCallback(
-    (value) => {
-      setPlaceFiltered(
-        places.filter(
-          (place) => place.price <= value.max && place.price >= value.min
-        )
-      );
-    },
-    [setPlaceFiltered]
-  );
-
-  return { placeFiltered, handleType, handleCountry, handlePrice };
+  return { placeFiltered, handleType, handleSearch };
 };

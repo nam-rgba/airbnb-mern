@@ -5,12 +5,28 @@ import { motion } from 'framer-motion';
 
 export default function SearchTab() {
   const [active, setActive] = useState('where');
-  const bars = ['where', 'checkin', 'checkout', 'who'];
+  const [searchValue, setSearchValue] = useState({
+    country: '',
+    price: { min: 0, max: 1 },
+    guest: 1,
+    isPetAble: false
+  });
+  const bars = ['where', 'PriceRange', 'Guest'];
   const Outlet = lazy(() => import(`./Tabs/${active}.jsx`));
+  console.log(searchValue);
 
   function changeTabs(bar) {
     setActive(bar);
   }
+
+  const nextTab = () => {
+    const index = bars.indexOf(active);
+    if (index < bars.length - 1) {
+      changeTabs(bars[index + 1]);
+    }
+  };
+
+  const submitSearch = () => {};
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -28,14 +44,19 @@ export default function SearchTab() {
             {bar}
           </div>
         ))}
-        <div className={style.search_button}>
+        <div className={style.search_button} onClick={submitSearch}>
           <p>Search</p>
           <CiSearch color="#ffffff" size={22} />
         </div>
       </div>
       <div className={style.outlet}>
         <Suspense fallback={<p></p>}>
-          <Outlet />
+          {/* when searchValue change, Outlet will re-render */}
+          <Outlet
+            handleChoose={nextTab}
+            setSearchValue={setSearchValue}
+            searchValue={searchValue}
+          />
         </Suspense>
       </div>
     </motion.div>
