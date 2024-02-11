@@ -22,8 +22,8 @@ export default function PriceRange({
       <div className={style.mid}>
         <div className={style.plea}> Choose your budget </div>
         <div className={style.now}>
-          From <input type="number" value={price[0]} />$ to{' '}
-          <input type="number" value={price[1]} />${' '}
+          From <input type="number" value={price[0]} readOnly />$ to{' '}
+          <input type="number" value={price[1]} readOnly />${' '}
         </div>
         <ReactSlider
           className="text-pink-900"

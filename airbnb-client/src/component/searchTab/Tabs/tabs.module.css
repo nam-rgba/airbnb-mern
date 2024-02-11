@@ -42,3 +42,17 @@
 
 /* ---------------------------------------- */
 /* People tab */
+
+.total_guest {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    margin-top: 2rem;
+}
+
+.total_guest p {
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
