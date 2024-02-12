@@ -56,3 +56,12 @@
     font-weight: 600;
     margin-right: 0.5rem;
 }
+
+.pet_check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 2rem;
+}

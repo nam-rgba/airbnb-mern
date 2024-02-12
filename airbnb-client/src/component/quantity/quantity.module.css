@@ -34,12 +34,7 @@
 }
 
 .change_qtt {
-    border: 1px solid #a4a4a4;
     padding: 0.2rem 0.6rem;
     border-radius: 99px;
     cursor: pointer;
-}
-
-.change_qtt:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }

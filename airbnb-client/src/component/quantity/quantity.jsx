@@ -1,20 +1,22 @@
-import { useState } from "react";
-import style from "./quantity.module.css";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { useState } from 'react';
+import style from './quantity.module.css';
+import { CiCirclePlus } from 'react-icons/ci';
+import { CiCircleMinus } from 'react-icons/ci';
 
-
-export default function Quantity({ name, old }) {
+export default function Quantity({ name, old, setGuest }) {
   const [amout, setAmount] = useState(0);
 
   const minus = () => {
     // helper function decrease amount
     if (amout > 0) {
       setAmount(amout - 1);
+      setGuest((prev) => prev - 1);
     }
   };
   const add = () => {
     // helper function increase amount
     setAmount(amout + 1);
+    setGuest((prev) => prev + 1);
   };
   return (
     <div className={style.container}>
@@ -24,11 +26,11 @@ export default function Quantity({ name, old }) {
       </div>
       <div className={style.quantity}>
         <div className={style.change_qtt} onClick={minus}>
-        <FaMinus size={10} color="#3d3d3d"/>
+          <CiCircleMinus size={24} color="#3d3d3d" />
         </div>
-        <div className={style.amout}>{amout}</div>
+        <p className={style.amout}>{amout}</p>
         <div className={style.change_qtt} onClick={add}>
-        <FaPlus size={10} color="#3d3d3d"/>
+          <CiCirclePlus size={24} color="#3d3d3d" />
         </div>
       </div>
     </div>

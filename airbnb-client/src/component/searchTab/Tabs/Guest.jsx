@@ -11,14 +11,11 @@ const datas = [
   {
     cname: 'Infants',
     old: 'Under 2'
-  },
-  {
-    cname: 'Pets',
-    old: 'Bringing a service animal?'
   }
 ];
 export default function Guest() {
   const [guest, setGuest] = useState(0);
+  const [isPet, setIsPet] = useState(false);
   return (
     <div className={style.container}>
       {datas.map((data) => (
@@ -29,6 +26,15 @@ export default function Guest() {
           setGuest={setGuest}
         />
       ))}
+
+      <div className={style.pet_check}>
+        <div>Do you bring any 4 legged friends?</div>
+        <input
+          type="checkbox"
+          value={isPet}
+          onChange={() => setIsPet(!isPet)}
+        />
+      </div>
 
       <div className={style.total_guest}>
         <p>Total guest</p>
