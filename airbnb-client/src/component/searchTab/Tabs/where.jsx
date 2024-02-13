@@ -3,7 +3,7 @@ import CountriesCard from '../../countries/countriesCard';
 import { useState } from 'react';
 import { countries } from '../../../utils';
 
-export default function Where() {
+export default function Where({ handleChoose, setSearchValue, searchValue }) {
   const [searchKey, setSearchKey] = useState('');
 
   const listFilter = countries.filter((country) =>
@@ -29,6 +29,7 @@ export default function Where() {
             key={country.id}
             name={country.name}
             displayName={country.nameDisplay}
+            onClick={handleChoose}
           />
         ))}
       </div>

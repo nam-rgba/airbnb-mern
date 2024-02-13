@@ -35,10 +35,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 1rem;
     justify-content: flex-start;
+    padding: 1rem;
     width: 100%;
 }
+
+
 
 /* ---------------------------------------- */
 /* People tab */
@@ -55,6 +57,7 @@
 .total_guest p {
     font-weight: 600;
     margin-right: 0.5rem;
+    color: var(--primary-color);
 }
 
 .pet_check {
@@ -64,4 +67,11 @@
     justify-content: space-between;
     width: 50%;
     margin-top: 2rem;
+}
+
+.pet_check input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
 }
