@@ -20,14 +20,14 @@ export const useFilter = () => {
       (place) =>
         place.price <= value.price.max && place.price >= value.price.min
     );
-    const placesInGuest = placesInPrice.filter(
-      (place) => place.guest <= value.maxGuest
-    );
-    let placesInPetAble = placesInGuest;
-    if (value.isPetAble) {
-      placesInPetAble = placesInGuest.filter((place) => place.isPetAble);
-    }
-    setPlaceFiltered(placesInPetAble);
+    // const placesInGuest = placesInPrice.filter(
+    //   (place) => place.guest <= value.maxGuest
+    // );
+    // let placesInPetAble = placesInGuest;
+    // if (value.isPetAble) {
+    //   placesInPetAble = placesInGuest.filter((place) => place.isPetAble);
+    // }
+    setPlaceFiltered(placesInPrice);
   }, []);
 
   return { placeFiltered, handleType, handleSearch };

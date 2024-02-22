@@ -13,9 +13,10 @@ const datas = [
     old: 'Under 2'
   }
 ];
-export default function Guest() {
+export default function Guest({ setSearchValue }) {
   const [guest, setGuest] = useState(0);
   const [isPet, setIsPet] = useState(false);
+
   return (
     <div className={style.container}>
       {datas.map((data) => (

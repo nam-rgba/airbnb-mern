@@ -8,7 +8,7 @@ import { useFilter } from '../../hooks/useFilter';
 
 const Home = () => {
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
-  const { placeFiltered, handleType } = useFilter();
+  const { placeFiltered, handleType, handleSearch } = useFilter();
 
   useEffect(() => {
     // This will be called whenever placeFiltered changes
@@ -28,7 +28,11 @@ const Home = () => {
 
   return (
     <div className={style.container}>
-      <Header hide="" whenDisplaySearch={whenDisplaySearch} />
+      <Header
+        hide=""
+        whenDisplaySearch={whenDisplaySearch}
+        handleSearch={handleSearch}
+      />
       <div className={style.content}>
         <div className={style.type_wrap}>
           <Type handleType={handleType} />

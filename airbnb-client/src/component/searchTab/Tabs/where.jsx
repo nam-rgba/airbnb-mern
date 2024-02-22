@@ -13,6 +13,13 @@ export default function Where({ handleChoose, setSearchValue, searchValue }) {
   const handleInputSearch = (e) => {
     setSearchKey(e.target.value);
   };
+
+  const whenSelectCountry = (country) => {
+    console.log('just call change country to... ' + country);
+    setSearchValue({ ...searchValue, country: country });
+    handleChoose();
+  };
+
   return (
     <div className={style.container}>
       <div className={style.search_input}>
@@ -25,12 +32,15 @@ export default function Where({ handleChoose, setSearchValue, searchValue }) {
       </div>
       <div className={style.result_where}>
         {listFilter.map((country) => (
-          <CountriesCard
+          <div
             key={country.id}
-            name={country.name}
-            displayName={country.nameDisplay}
-            onClick={handleChoose}
-          />
+            onClick={() => whenSelectCountry(country.nameDisplay)}
+          >
+            <CountriesCard
+              name={country.name}
+              displayName={country.nameDisplay}
+            />
+          </div>
         ))}
       </div>
     </div>

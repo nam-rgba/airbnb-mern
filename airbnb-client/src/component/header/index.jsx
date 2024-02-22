@@ -13,7 +13,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import axios from 'axios';
 
-export default function Header({ hide, whenDisplaySearch }) {
+export default function Header({ hide, whenDisplaySearch, handleSearch }) {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [ref, visible, toogleVisible] = useClickOutSide();
@@ -33,6 +33,12 @@ export default function Header({ hide, whenDisplaySearch }) {
     console.log('excute 2 ' + visible2);
     toogleVisible2();
     whenDisplaySearch();
+  };
+
+  const handleSubmitSearch = (value) => {
+    toogleVisible2();
+    handleSearch(value);
+    console.log(value);
   };
 
   return (
@@ -63,7 +69,7 @@ export default function Header({ hide, whenDisplaySearch }) {
             </div>
             {visible2 && (
               <div className={style.search_tab}>
-                <SearchTab />
+                <SearchTab handleSubmitSearch={handleSubmitSearch} />
               </div>
             )}
           </div>

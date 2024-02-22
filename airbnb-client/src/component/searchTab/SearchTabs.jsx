@@ -3,7 +3,7 @@ import { useState, lazy, Suspense } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { motion } from 'framer-motion';
 
-export default function SearchTab() {
+export default function SearchTab({ handleSubmitSearch }) {
   const [active, setActive] = useState('where');
   const [searchValue, setSearchValue] = useState({
     country: '',
@@ -26,7 +26,10 @@ export default function SearchTab() {
     }
   };
 
-  const submitSearch = () => {};
+  // When take all values,
+  const submitSearch = () => {
+    handleSubmitSearch(searchValue);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
