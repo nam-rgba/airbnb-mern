@@ -7,7 +7,12 @@ export const useFilter = () => {
   const handleType = useCallback(
     async (value) => {
       console.log('change type to ' + value);
-      await setPlaceFiltered(places.filter((place) => place.type === value));
+      if (value === 'trending') {
+        setPlaceFiltered(places);
+        return;
+      }
+      const placesInType = places.filter((place) => place.type === value);
+      setPlaceFiltered(placesInType);
     },
     [setPlaceFiltered]
   );

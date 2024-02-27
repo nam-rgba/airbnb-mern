@@ -46,19 +46,21 @@ export default function Room() {
         <section className={style.se1}>
           <div className={style.text}>
             <div className={style.overview}>
-              <div className={style.title}>Beach Bungalow Private Island</div>
+              <div className={style.title}>
+                {place.describe
+                  ? place.describe
+                  : 'Beach Bungalow Private Island'}
+              </div>
               <div className={style.overview_review}>
                 <div className={style.star}>
-                  <AiFillStar /> 5.0
+                  <AiFillStar /> {place.review}
                 </div>
                 <div className="">.</div>
                 <div className={style.host_reward}>
                   <BiMedal /> Superhost
                 </div>
                 <div className="">.</div>
-                <div className={style.place}>
-                  North Male Athon, Kaafu, Maldives
-                </div>
+                <div className={style.place}>{place.place}</div>
               </div>
             </div>
 
@@ -89,7 +91,10 @@ export default function Room() {
                 <img src={place.image[3]} alt="" />
               </div>
               <div>
-                <img src={place.image[0]} alt="" />
+                <img
+                  src={place.image[4] ? place.image[4] : place.image[0]}
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -99,7 +104,7 @@ export default function Room() {
           <div className={style.detail}>
             <div className={style.hosted}>
               <div className={style.text}>
-                <h3>Entire home hosted by Diana</h3>
+                <h3>Entire home hosted by {place.hoster}</h3>
                 <p>7 guests . 3 bedrooms . 4 beds . 3 baths</p>
               </div>
               <div className={style.avt}>

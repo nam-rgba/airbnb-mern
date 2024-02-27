@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const Image = ({ name, type }) => {
   const [image, setImage] = useState();
   try {
-    import(`./assets/${name}.${type}`).then((image) => {
+    import(`./assets/logo/${name}.${type}`).then((image) => {
       setImage(image.default);
     });
 

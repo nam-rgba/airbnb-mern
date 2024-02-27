@@ -13,9 +13,13 @@ const datas = [
     old: 'Under 2'
   }
 ];
-export default function Guest({ setSearchValue }) {
+export default function Guest({ setSearchValue, searchValue }) {
   const [guest, setGuest] = useState(0);
   const [isPet, setIsPet] = useState(false);
+
+  const handleSubmitGuest = () => {
+    setSearchValue({ ...searchValue, Guest: guest, isPetAble: isPet });
+  };
 
   return (
     <div className={style.container}>
@@ -39,7 +43,7 @@ export default function Guest({ setSearchValue }) {
 
       <div className={style.total_guest}>
         <p>Total guest</p>
-        <span>{guest}</span>
+        <span>{searchValue.Guest}</span>
       </div>
     </div>
   );

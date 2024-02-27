@@ -6,12 +6,14 @@ const generateSampleData = () => {
   for (let i = 0; i < 3; i++) {
     const hoster = {
       id: uuidv4(),
-      name: `Hoster${i + 1}`,
+      name: `Hoster ${i + 1}`,
       star: Math.random() * (5 - 1) + 1
     };
 
     hosters.push(hoster);
   }
+
+  console.log(hosters);
 
   return hosters;
 };
@@ -73,7 +75,7 @@ export const places = [
     ],
     review: '5.0',
     type: 'camping',
-    hoster: sampleData[0],
+    hoster: sampleData[0].name,
     petAble: true,
     maxGuest: 5,
     country: countries[0].nameDisplay
@@ -92,7 +94,7 @@ export const places = [
     ],
     review: '4.9',
     type: 'beach view',
-    hoster: sampleData[1],
+    hoster: sampleData[1].name,
     petAble: false,
     maxGuest: 3,
     country: countries[0].nameDisplay
@@ -111,7 +113,7 @@ export const places = [
     ],
     review: '5.0',
     type: 'cabin',
-    hoster: sampleData[2],
+    hoster: sampleData[2].name,
     petAble: true,
     maxGuest: 2,
     country: countries[1].nameDisplay
@@ -130,7 +132,7 @@ export const places = [
     ],
     review: '5.0',
     type: 'cabin',
-    hoster: sampleData[0],
+    hoster: sampleData[0].name,
     petAble: true,
     maxGuest: 4,
     country: countries[2].nameDisplay
@@ -150,9 +152,72 @@ export const places = [
     ],
     review: '4.0',
     type: 'trending',
-    hoster: sampleData[1],
+    hoster: sampleData[1].name,
     petAble: false,
     maxGuest: 3,
     country: countries[2].nameDisplay
+  },
+  {
+    id: '6',
+    describe: 'Vintage Airstream Suite on Top of a Hill',
+    place: 'Camper/RV in Calaca, Philippines',
+    distance: '2792 kilometers',
+    timeAvailoble: 'March 4-9',
+    price: 225,
+    image: [
+      'https://a0.muscache.com/im/pictures/7fde1672-2160-4593-90cd-00bd75da732a.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/04b555bd-2c93-4caf-95b1-749fdcace5a6.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/e5bb2717-c75a-46f0-a072-42db557efaf8.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/7224d487-cd77-47a5-a74f-a9e274386125.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/3e634365-5154-4f84-89de-1e089fdd0326.jpg?im_w=1200'
+    ],
+    review: '4.9',
+    type: 'camping',
+    hoster: sampleData[1].name,
+    petAble: false,
+    maxGuest: 2,
+    country: 'Philippines'
+  },
+  {
+    id: '7',
+    describe: '“The Orchard” Beautiful location, amazing views',
+    place: 'Farm stay in Maidenwells, United Kingdom',
+    distance: '2792 kilometers',
+    timeAvailoble: 'March 4-9',
+    price: 190,
+    image: [
+      'https://a0.muscache.com/im/pictures/19414d6a-8471-4088-8ea3-ba034acc87ca.jpg?im_w=960',
+      'https://a0.muscache.com/im/pictures/da6cd19b-028e-41b4-b1ef-7ed907f528a0.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/76c1d2a4-4513-479b-88af-853c8b3dcdd5.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/a68a17e0-8cb8-4e6a-81a5-70421541eaca.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/875fb558-8b6b-4fa5-9a37-b770e032f9d4.jpg?im_w=720'
+    ],
+    review: '4.96',
+    type: 'park',
+    hoster: sampleData[1].name,
+    petAble: false,
+    maxGuest: 4,
+    country: 'united kingdom'
+  },
+  {
+    id: '8',
+    describe: 'Overnight stay in the Stelzenhütte an der Donau',
+    place: 'Treehouse in Donauwörth, Germany',
+    distance: '2792 kilometers',
+    timeAvailoble: 'March 4-9',
+    price: 127,
+    image: [
+      'https://a0.muscache.com/im/pictures/f365bfc1-5a98-45b1-beb8-ac4a0c9b4940.jpg?im_w=960',
+      'https://a0.muscache.com/im/pictures/469e6f7e-9449-43a6-a8f1-5cb0d60affed.jpg?im_w=720',
+      'https://a0.muscache.com/im/pictures/miso/Hosting-49739918/original/5fc77b87-0ddb-438b-a6bc-82719e96b831.jpeg?im_w=720',
+      'https://a0.muscache.com/im/pictures/miso/Hosting-49739918/original/e2a8a240-8896-48f2-ae4a-eee9076d30f8.jpeg?im_w=720',
+      'https://a0.muscache.com/im/pictures/28836285-7639-493e-beda-9e9814ff657c.jpg?im_w=720'
+    ],
+    review: '4.7',
+    type: 'tree house',
+    hoster: sampleData[2].name,
+    petAble: true,
+    maxGuest: 4,
+    country: 'germany'
   }
 ];

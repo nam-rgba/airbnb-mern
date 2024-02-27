@@ -16,14 +16,14 @@ import { TbBrandGoogleHome } from 'react-icons/tb';
 import { BiSwim } from 'react-icons/bi';
 
 export default function Type({ handleType }) {
-  const [current, setCurrent] = useState('1');
+  const [current, setCurrent] = useState('0');
   const defaultColor = '#717171';
 
   const typeList = [
     {
       id: '0',
-      icon: FaUmbrellaBeach,
-      describe: 'Beach view'
+      icon: FaFireAlt,
+      describe: 'trending'
     },
     {
       id: '1',
@@ -32,9 +32,10 @@ export default function Type({ handleType }) {
     },
     {
       id: '2',
-      icon: GiCastleRuins,
-      describe: 'Castles'
+      icon: FaUmbrellaBeach,
+      describe: 'Beach view'
     },
+
     {
       id: '3',
       icon: GiForestCamp,
@@ -70,9 +71,10 @@ export default function Type({ handleType }) {
     },
     {
       id: '11',
-      icon: FaFireAlt,
-      describe: 'trending'
+      icon: GiCastleRuins,
+      describe: 'Mountain'
     },
+
     {
       id: '12',
       icon: GiChefToque,
