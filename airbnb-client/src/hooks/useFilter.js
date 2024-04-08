@@ -1,8 +1,8 @@
 import { places } from '../utils';
 import { useCallback, useState } from 'react';
 
-export const useFilter = () => {
-  const [placeFiltered, setPlaceFiltered] = useState(places);
+export const useFilter = (rooms) => {
+  const [placeFiltered, setPlaceFiltered] = useState(rooms);
 
   const handleType = useCallback(
     async (value) => {

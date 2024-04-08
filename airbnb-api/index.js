@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const User = require("./models/User");
+const Rooms = require("./models/Rooms");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const crypto = require("crypto");
@@ -11,8 +12,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://airbnb-mern-fe.vercel.app",
-    // origin: "http://localhost:5173",
+    // origin: "https://airbnb-mern-fe.vercel.app",
+    origin: "http://localhost:5173",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
     credentials: true,
@@ -105,6 +106,17 @@ app.post("/logout", (req, res) => {
   res.cookie("token", "").json();
 });
 
+app.get("/places", async (req, res) => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL);
+    const rooms = await Rooms.find({});
+    res.json(rooms);
+  } catch (error) {
+    console.error("Error fetching rooms:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 // app.post("/api/upload-by-link", async (req, res) => {
 //   const { link } = req.body;
 //   const newName = "photo" + Date.now() + ".jpg";
@@ -177,6 +189,8 @@ app.post("/logout", (req, res) => {
 //     res.json(await Place.find({ owner: id }));
 //   });
 // });
+
+
 
 // app.get("/api/places/:id", async (req, res) => {
 //   mongoose.connect(process.env.MONGO_URL);
