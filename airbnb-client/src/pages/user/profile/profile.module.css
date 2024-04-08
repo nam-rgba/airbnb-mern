@@ -17,14 +17,7 @@
 }
 
 
-.verification {
-    padding: 10%;
-    width: 50%;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+
 
 .avt {
     width: 65%;
@@ -42,8 +35,21 @@
     border-radius: 999px;
 }
 
+.verification {
+    color: #333333;
+    font-family: 'Nunito', sans-serif;
+    padding: 2rem;
+    width: 50%;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .verification h3 {
     padding-bottom: 0.2rem;
+    text-align: left;
+    font-size: larger;
 }
 
 .verification span {
@@ -56,7 +62,9 @@
 }
 
 .verification p {
-    margin-left: 1rem;
+    text-align: left;
+    font-size: 14px;
+    padding-top: 0.3rem;
 }
 
 .create_profile {
@@ -108,6 +116,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-transform: capitalize;
+
 }
 
 .countTime p {
@@ -115,6 +125,19 @@
 }
 
 .countTime span {
+    display: block;
+    width: 100%;
+    text-align: left;
     font-size: 14px;
     font-weight: 600;
+}
+
+.email span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.email span svg {
+    margin-right: 0.5rem;
 }
