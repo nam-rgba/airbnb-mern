@@ -1,8 +1,19 @@
 import { places } from '../utils';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import axios from 'axios';
 
-export const useFilter = (rooms) => {
-  const [placeFiltered, setPlaceFiltered] = useState(rooms);
+export const useFilter = () => {
+  const [placeFiltered, setPlaceFiltered] = useState([]);
+  useEffect(() => {
+    axios
+      .get('/places')
+      .then((res) => {
+        setPlaceFiltered(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleType = useCallback(
     async (value) => {

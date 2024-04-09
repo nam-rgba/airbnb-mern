@@ -2,26 +2,14 @@ import Header from '../../component/header/index';
 import Type from '../../component/typeFilters/type';
 import Card from '../../component/placeCard/card';
 import style from './home.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useFilter } from '../../hooks/useFilter';
-import axios from 'axios';
 
 const Home = () => {
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
-  const [rooms, setRooms] = useState([]);
+  let { placeFiltered, handleType, handleSearch } = useFilter();
 
-  useEffect(() => {
-    axios
-      .get('/places')
-      .then((res) => {
-        setRooms(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-  const { placeFiltered, handleType, handleSearch } = useFilter(rooms);
+  console.log(placeFiltered);
 
   const whenDisplaySearch = () => {
     setIsSearchDisplay(!isSearchDisplay);
@@ -46,7 +34,7 @@ const Home = () => {
           <Type handleType={handleType} />
         </div>
         <div className={style.places}>
-          {rooms.map((place) => (
+          {placeFiltered.map((place) => (
             <Card key={place.place} place={place} />
           ))}
         </div>
