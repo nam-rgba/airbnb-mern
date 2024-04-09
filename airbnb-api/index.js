@@ -13,7 +13,6 @@ const app = express();
 app.use(
   cors({
     origin: process.env.ORIGIN,
-    // origin: "http://localhost:5173",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
     credentials: true,
@@ -31,10 +30,6 @@ console.log(new Date());
 
 //0n772csUcpn9EfCI
 mongoose.connect(process.env.MONGO_URL);
-
-app.get("/test", (req, res) => {
-  res.json("test ok");
-});
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
