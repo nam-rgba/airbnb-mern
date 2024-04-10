@@ -1,9 +1,9 @@
-import { useCallback, useState, useEffect } from 'react';
-import axios from 'axios';
+import { useCallback, useState } from 'react';
+// import axios from 'axios';
 import { places } from '../utils';
 
 export const useFilter = () => {
-  const [placeFiltered, setPlaceFiltered] = useState([]);
+  const [placeFiltered, setPlaceFiltered] = useState(places);
   // const [places, setPlaces] = useState([]);
   // useEffect(() => {
   //   axios
@@ -18,16 +18,18 @@ export const useFilter = () => {
   //     });
   // }, []);
 
+  console.log(places);
   const handleType = useCallback(
     async (value) => {
       if (value == 'trending') {
         setPlaceFiltered(places);
+
         return;
       }
       const placesInType = places.filter((place) => place.type == value);
       setPlaceFiltered(placesInType);
     },
-    [setPlaceFiltered, places]
+    [setPlaceFiltered]
   );
 
   const handleSearch = useCallback((value) => {
