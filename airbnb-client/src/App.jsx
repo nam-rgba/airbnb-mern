@@ -22,8 +22,8 @@ const RegisterPage = lazy(() =>
   import('./pages/account/register/register.jsx')
 );
 
-// axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-axios.defaults.baseURL = 'https://airbnb-mern-nu.vercel.app/';
+axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
+// axios.defaults.baseURL = 'https://airbnb-mern-nu.vercel.app/';
 axios.defaults.withCredentials = true;
 
 function App() {
