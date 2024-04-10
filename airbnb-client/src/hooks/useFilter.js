@@ -6,7 +6,7 @@ export const useFilter = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
     axios
-      .get('/places')
+      .get('/places', { withCredentials: true })
       .then((res) => {
         setPlaces(res.data);
         setPlaceFiltered(res.data);

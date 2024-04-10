@@ -1,21 +1,17 @@
-import style from "./host.module.css";
-import Image from "../../Image";
-import { Link } from "react-router-dom";
-import { BiHome } from "react-icons/bi";
-import { RiSendPlaneFill } from "react-icons/ri";
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
-import { useMemo, useState } from "react";
-import axios from "axios";
-import CryptoJS from "crypto-js";
+import style from './host.module.css';
+import Image from '../../Image';
+import { Link } from 'react-router-dom';
+import { BiHome } from 'react-icons/bi';
+import { RiSendPlaneFill } from 'react-icons/ri';
+import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
+import { useMemo, useState } from 'react';
 
 export default function Host() {
   // State for HMAC
-  const [email, setEmail] = useState("");
-  const [hmac, setHmac] = useState("");
-  const [key, setkey] = useState("");
+  const [email, setEmail] = useState('');
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.GOOGLE_KEY_MAP,
+    googleMapsApiKey: import.meta.env.GOOGLE_KEY_MAP
   });
 
   const center = useMemo(
@@ -24,50 +20,10 @@ export default function Host() {
   );
 
   // Generate HMAC with crypto-js function
-  function generateHMAC(message, secretKey) {
-    console.log(message);
-    const hmac = CryptoJS.HmacSHA256(message, secretKey);
-    const hmacBase64 = hmac.toString(CryptoJS.enc.Base64);
-    return hmacBase64;
-  }
+
   // Handle submit email
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Get secret key from .env file
-    const secretKey = { key: import.meta.env.VITE_SECRET_KEY_HMAC };
-    // Generate HMAC
-    const clientHmac = generateHMAC(email, secretKey.key);
-    setHmac(clientHmac);
-    // Send HMAC to server to check and get response
-    try {
-      const mailRegis = await axios.post(
-        "/hmacRegis",
-        { email, clientHmac },
-        { withCredentials: true }
-      );
-      // Alert result
-      alert(`${mailRegis.data.result}, hmac code is ${mailRegis.data.hmac}`);
-      console.log(mailRegis.data);
-    } catch (error) {
-      console.log(error);
-      alert("Failed!");
-    }
-  };
 
   // Attacking HMAC use Brute Force function
-  const handleAttack = async () => {
-    for (let i = 0; i < 1000; i++) {
-      //Generate space of key
-      const potentialKey = i.toString();
-      // Generate HMAC with each key
-      const hmacGuess = generateHMAC(email, potentialKey);
-      // Compare
-      if (hmacGuess == hmac) {
-        setkey(potentialKey);
-        return;
-      }
-    }
-  };
 
   return (
     <>
@@ -81,7 +37,7 @@ export default function Host() {
         <div className={style.setup}>
           <div>Ready to Airbnb it?</div>
           <button className={style.btn}>
-            {" "}
+            {' '}
             <BiHome /> Airbnb Setup
           </button>
         </div>
@@ -104,7 +60,7 @@ export default function Host() {
 
           <div className={style.form}>
             <p>Contact with us by email</p>
-            <form action="" onSubmit={handleSubmit}>
+            <form action="">
               <label htmlFor="email" className={style.invisible}>
                 Email
               </label>
@@ -122,14 +78,6 @@ export default function Host() {
                 <RiSendPlaneFill color="#ffffff" />
               </button>
             </form>
-          </div>
-          <div className={style.attack}>
-            <button className={style.attackbtn} onClick={handleAttack}>
-              Brute Force Attack
-            </button>
-            <div className={style.key}>
-              The key was used is <span>{key}</span>{" "}
-            </div>
           </div>
         </div>
 
