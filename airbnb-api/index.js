@@ -6,19 +6,25 @@ const User = require("./models/User");
 const Rooms = require("./models/Rooms");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
-const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 
-app.use(
-  cors({
-    // origin: process.env.ORIGIN,
-    origin: "https://airbnb-mern-fe.vercel.app/",
-    methods: ["GET", "PUT", "POST", "DELETE"],
-    optionsSuccessStatus: 204,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     // origin: process.env.ORIGIN,
+//     origin: "https://airbnb-mern-fe.vercel.app/",
+//     methods: ["GET", "PUT", "POST", "DELETE"],
+//     optionsSuccessStatus: 204,
+//     credentials: true,
+//   })
+// );
+
+
+app.use(cors({
+	credentials: true,
+	origin: true
+}));
+
 
 app.use(express.json());
 app.use(cookieParser());
