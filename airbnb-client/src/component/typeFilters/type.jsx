@@ -83,7 +83,9 @@ export default function Type({ handleType }) {
   ];
 
   const handleTypeChange = (id) => {
-    console.log('just call change type to... ' + typeList[id].describe);
+    console.log(
+      'just call change type to... ' + typeList[id].describe.toLocaleLowerCase()
+    );
     setCurrent(id);
     handleType(typeList[id].describe.toLowerCase());
   };

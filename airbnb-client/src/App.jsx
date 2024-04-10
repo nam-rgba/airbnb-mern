@@ -23,7 +23,6 @@ const RegisterPage = lazy(() =>
 );
 
 axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-// axios.defaults.baseURL = 'http://127.0.0.1:4000';
 axios.defaults.withCredentials = true;
 
 function App() {

@@ -15,7 +15,7 @@ app.use(
     origin: process.env.ORIGIN,
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
-    credentials: false,
+    credentials: true,
   })
 );
 

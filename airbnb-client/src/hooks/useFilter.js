@@ -1,14 +1,16 @@
-import { places } from '../utils';
 import { useCallback, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const useFilter = () => {
   const [placeFiltered, setPlaceFiltered] = useState([]);
+  const [places, setPlaces] = useState([]);
   useEffect(() => {
     axios
       .get('/places')
       .then((res) => {
+        setPlaces(res.data);
         setPlaceFiltered(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -17,15 +19,14 @@ export const useFilter = () => {
 
   const handleType = useCallback(
     async (value) => {
-      console.log('change type to ' + value);
-      if (value === 'trending') {
+      if (value == 'trending') {
         setPlaceFiltered(places);
         return;
       }
-      const placesInType = places.filter((place) => place.type === value);
+      const placesInType = places.filter((place) => place.type == value);
       setPlaceFiltered(placesInType);
     },
-    [setPlaceFiltered]
+    [setPlaceFiltered, places]
   );
 
   const handleSearch = useCallback((value) => {
