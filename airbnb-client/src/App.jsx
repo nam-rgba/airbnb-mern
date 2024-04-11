@@ -22,11 +22,25 @@ const RegisterPage = lazy(() =>
   import('./pages/account/register/register.jsx')
 );
 
-axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-// axios.defaults.baseURL = 'https://airbnb-mern-nu.vercel.app/';
+import { useState, useEffect } from 'react';
+
+// axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
+// axios.defaults.baseURL = 'http://api.rap-ai.asia/';
+axios.defaults.baseURL = 'https://airbnb-mern-nu.vercel.app/';
 axios.defaults.withCredentials = true;
 
 function App() {
+  const [data, setData] = useState([]);
+  const [header, setHeader] = useState([]);
+
+  useEffect(() => {
+    axios.get('/profile').then(({ data }) => {
+      setData(data);
+      const firstRow = data[0];
+      const columns = Object.keys(firstRow);
+      setHeader(columns);
+    });
+  }, []);
   return (
     <>
       <UserContextProvider>
@@ -38,7 +52,10 @@ function App() {
               <Route path="register" element={<RegisterPage />} />
             </Route>
             <Route path="user" element={<LayoutUser />}>
-              <Route path="profile" element={<ProfilePage />} />
+              <Route
+                path="profile"
+                element={<ProfilePage data={data} header={header} />}
+              />
             </Route>
             <Route path="host" element={<Host />}>
               <Route path="become-a-host" element={<BecomeAHost />}></Route>

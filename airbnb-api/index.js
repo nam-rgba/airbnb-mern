@@ -104,6 +104,22 @@ app.get("/profile", (req, res) => {
   }
 });
 
+
+app.get('users',(req,res)=>{
+
+  mongoose.connect(process.env.MONGO_URL);
+  const { token } = req.cookies;
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, async (errors, data) => {
+      if (errors) throw errors;
+      const users = await User.find({});
+      res.json(users);
+    });
+  } else {
+    res.json(null);
+  }
+})
+
 app.post("/logout", (req, res) => {
   res.cookie("token", "").json();
 });

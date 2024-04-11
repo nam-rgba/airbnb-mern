@@ -1,13 +1,15 @@
 import style from './profile.module.css';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineDone, MdOutlineQuestionMark } from 'react-icons/md';
 import avt from '../../../assets/logo/airbnb.svg';
+import Table from '../../../Table';
 
-export default function ProfilePage() {
+export default function ProfilePage({ data, header }) {
   const { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
+
   const time = () => {
     const now = Date.parse(new Date());
     const timeCreate = Date.parse(user.timeCreate);
@@ -23,6 +25,8 @@ export default function ProfilePage() {
   } else if (!ready) {
     return <p>Loading...</p>;
   }
+
+  const columns = useMemo(() => [], []);
 
   return (
     <>
