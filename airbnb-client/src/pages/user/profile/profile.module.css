@@ -1,19 +1,26 @@
 .info {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     padding-top: 2rem;
-    width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .card {
-    width: 20%;
-    margin-left: 10rem;
+    width: 30%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3rem;
+}
+
+.table {
+    width: 70%;
+    overflow: hidden;
+    padding: 3rem;
 }
 
 
@@ -39,10 +46,9 @@
     color: #333333;
     font-family: 'Nunito', sans-serif;
     padding: 2rem;
-    width: 50%;
     border-radius: 15px;
     margin-bottom: 2rem;
-    width: 100%;
+    width: 80%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -106,7 +112,7 @@
     padding: 10%;
     border-radius: 15px;
     margin-bottom: 2rem;
-    width: 100%;
+    width: 80%;
 }
 
 .countTime {

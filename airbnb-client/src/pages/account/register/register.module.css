@@ -7,23 +7,6 @@
     width: 100%;
 }
 
-.action button {
-    padding: 0.5rem 1.2rem;
-    border: 1px solid #ff385c;
-    margin: 1rem;
-    background-color: white;
-    color: #ff385c;
-    float: left;
-    transition: 0.1s linear;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff385c;
-    color: white;
-    box-shadow: 1px 1px 3px 0px #ff385c;
-}
-
 .logo {
     height: 10%;
     object-fit: cover;
@@ -44,37 +27,20 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .form form {
     display: flex;
     flex-direction: column;
     width: 50%;
-    border: 1px solid #ff385c;
     padding: 2rem;
     border-radius: 10px;
 }
 
-.form form button {
-    width: 100%;
-    padding: 0.6rem;
-    margin-top: 1.5rem;
-    border: none;
-    transition: 0.11s all;
-    background-color: #ff385c;
-    color: white;
-    cursor: pointer;
-    border-radius: 999px;
-}
 
-.git {
-    background-color: #29ae58 !important;
-}
 
-.git:hover {
-    box-shadow: 1px 1px 3px 0 #29ae58;
-}
+
 
 .hidden_visually {
     opacity: 0;
@@ -85,22 +51,16 @@ form h4 {
     float: left;
     width: fit-content;
     color: #ff385c;
-
-
-}
-
-form input {
-    outline: none;
-    padding: 0.4rem 0.2rem;
     text-align: left;
-
+    margin: 0.6rem 0;
 }
+
+
 
 form p {
     width: 100%;
-    text-align: center;
-    line-height: 0.1em;
-    border-bottom: 1px solid #6d6d6d;
+    text-align: left;
+    font-size: smaller;
     color: #6d6d6d;
     margin-top: 1rem;
 }
@@ -115,11 +75,18 @@ form p span {
     line-height: 1;
     border: none;
     font-size: smaller;
-    margin: 0.4rem;
-    padding: 0 0.3rem;
+    margin-top: 1rem;
 }
 
 .register a {
     color: #ff385c;
     text-decoration: underline;
+}
+
+.buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 }

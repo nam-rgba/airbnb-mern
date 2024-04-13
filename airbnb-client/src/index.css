@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
 
 :root {
     --primary-color: #ff385c;
@@ -31,4 +33,11 @@ html::-webkit-scrollbar-thumb:hover {
 
 html {
     overflow: auto;
+}
+
+form input {
+    outline: none;
+    padding: 0.4rem 0.2rem;
+    text-align: left;
+
 }

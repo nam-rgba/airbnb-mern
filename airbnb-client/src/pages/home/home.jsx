@@ -9,7 +9,7 @@ const Home = () => {
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
   let { placeFiltered, handleType, handleSearch } = useFilter();
 
-  console.log(placeFiltered);
+  // console.log(placeFiltered);
 
   const whenDisplaySearch = () => {
     setIsSearchDisplay(!isSearchDisplay);

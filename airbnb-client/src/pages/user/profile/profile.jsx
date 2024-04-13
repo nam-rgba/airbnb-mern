@@ -1,12 +1,11 @@
 import style from './profile.module.css';
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineDone, MdOutlineQuestionMark } from 'react-icons/md';
 import avt from '../../../assets/logo/airbnb.svg';
-import Table from '../../../Table';
 
-export default function ProfilePage({ data, header }) {
+export default function ProfilePage() {
   const { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -14,8 +13,6 @@ export default function ProfilePage({ data, header }) {
     const now = Date.parse(new Date());
     const timeCreate = Date.parse(user.timeCreate);
     const totals = now - timeCreate;
-    console.log(now);
-    console.log(user.timeCreate);
 
     return Math.floor(totals / 86400000) + 1;
   };
@@ -25,8 +22,6 @@ export default function ProfilePage({ data, header }) {
   } else if (!ready) {
     return <p>Loading...</p>;
   }
-
-  const columns = useMemo(() => [], []);
 
   return (
     <>
@@ -68,6 +63,7 @@ export default function ProfilePage({ data, header }) {
             </div>
           </div>
         </section>
+        <section className={style.table}></section>
       </div>
 
       <div className={style.action}></div>

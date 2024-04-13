@@ -1,13 +1,15 @@
-import style from "./login.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import Image from "../../../Image";
-import { useContext, useState } from "react";
-import axios from "axios";
-import { UserContext } from "../../../contexts/UserContext";
+import style from './login.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import Image from '../../../Image';
+import { useContext, useState } from 'react';
+import axios from 'axios';
+import { UserContext } from '../../../contexts/UserContext';
+import { FcGoogle } from 'react-icons/fc';
+import { PrimaryButton, SecondaryButton, Input } from '../../../Component';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
@@ -15,18 +17,18 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const userDoc = await axios.post(
-        "/login",
+        '/login',
         { email, password },
         { withCredentials: true }
       );
       setUser(userDoc.data);
       console.log(userDoc.data);
 
-      alert("Login successfully");
+      alert('Login successfully');
       // setRedirect(true);
-      return navigate("/");
+      return navigate('/');
     } catch (error) {
-      alert("Login failed!");
+      alert('Login failed!');
     }
   };
 
@@ -40,11 +42,14 @@ const LoginPage = () => {
 
       <div className={style.form}>
         <form action="" onSubmit={handleSubmitLogin}>
-          <h4>Welcome to Airbnb</h4>
+          <h4>
+            Welcome to Airbnb, lets discover new places, new people, new you!
+          </h4>
+          <p>Welcome back, please sign in to continue</p>
           <label htmlFor="email" className={style.hidden_visually}>
             Email
           </label>
-          <input
+          <Input
             type="email"
             name="email"
             id="email"
@@ -58,7 +63,7 @@ const LoginPage = () => {
           <label htmlFor="password" className={style.hidden_visually}>
             Password
           </label>
-          <input
+          <Input
             type="password"
             name="password"
             id="password"
@@ -69,16 +74,17 @@ const LoginPage = () => {
             }}
           />
 
-          <button>Sign in</button>
+          <div className={style.buttons}>
+            <PrimaryButton>Sign in</PrimaryButton>
 
-          <p>
-            <span>or</span>
-          </p>
+            <SecondaryButton>
+              Google <FcGoogle style={{ marginLeft: '5px' }} size={20} />{' '}
+            </SecondaryButton>
+          </div>
 
-          <button className={style.git}>Continue with Github</button>
           <p className={style.register}>
-            If your have not had a account yet,{" "}
-            <Link to="/account/register">Register here</Link>{" "}
+            If your have not had a account yet,{' '}
+            <Link to="/account/register">Register here</Link>{' '}
           </p>
         </form>
       </div>

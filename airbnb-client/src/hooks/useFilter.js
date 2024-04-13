@@ -1,24 +1,22 @@
-import { useCallback, useState } from 'react';
-// import axios from 'axios';
-import { places } from '../utils';
+import { useCallback, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const useFilter = () => {
+  const [places, setPlaces] = useState([]);
   const [placeFiltered, setPlaceFiltered] = useState(places);
-  // const [places, setPlaces] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get('/places', { withCredentials: true })
-  //     .then((res) => {
-  //       setPlaces(res.data);
-  //       setPlaceFiltered(res.data);
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get('/places', { withCredentials: true })
+      .then((res) => {
+        setPlaces(res.data);
+        setPlaceFiltered(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-  console.log(places);
   const handleType = useCallback(
     async (value) => {
       if (value == 'trending') {

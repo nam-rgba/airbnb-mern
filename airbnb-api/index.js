@@ -105,7 +105,7 @@ app.get("/profile", (req, res) => {
 });
 
 
-app.get('users',(req,res)=>{
+app.get('/users',(req,res)=>{
 
   mongoose.connect(process.env.MONGO_URL);
   const { token } = req.cookies;

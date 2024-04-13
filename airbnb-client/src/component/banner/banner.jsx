@@ -1,12 +1,12 @@
-import Image from '../../Image';
+import acp from '../../assets/logo/login.png';
 import style from './banner.module.css';
 
 const Banner = () => {
   return (
     <div className={style.container}>
-      <div>
-        <Image name="banner" type="png" />
-      </div>
+      <a href="https://storyset.com/travel">
+        <img src={acp} alt="acp" />
+      </a>
     </div>
   );
 };
