@@ -1,9 +1,10 @@
 import { useCallback, useState, useEffect } from 'react';
 import axios from 'axios';
+// import { places } from '../utils/index.js';
 
 export const useFilter = () => {
   const [places, setPlaces] = useState([]);
-  const [placeFiltered, setPlaceFiltered] = useState(places);
+  const [placeFiltered, setPlaceFiltered] = useState([]);
   useEffect(() => {
     axios
       .get('/places', { withCredentials: true })
@@ -21,7 +22,6 @@ export const useFilter = () => {
     async (value) => {
       if (value == 'trending') {
         setPlaceFiltered(places);
-
         return;
       }
       const placesInType = places.filter((place) => place.type == value);

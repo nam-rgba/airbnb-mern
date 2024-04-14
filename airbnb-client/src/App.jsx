@@ -23,9 +23,7 @@ const RegisterPage = lazy(() =>
 );
 
 // axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-axios.defaults.baseURL = 'http://stayin.online:4001';
-// axios.defaults.baseURL = 'http://api.rap-ai.asia/';
-// axios.defaults.baseURL = 'https://airbnb-mern-nu.vercel.app/';
+axios.defaults.baseURL = 'http://103.146.23.192:4001';
 axios.defaults.withCredentials = true;
 
 function App() {
