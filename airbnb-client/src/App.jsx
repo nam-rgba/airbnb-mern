@@ -25,13 +25,14 @@ const RegisterPage = lazy(() =>
 // axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
 axios.defaults.baseURL = 'http://103.146.23.192:4001';
 axios.defaults.withCredentials = true;
+console.log(axios.defaults.baseURL);
 
 function App() {
   // const isDataFetched = data.length > 0;
   return (
     <>
       <UserContextProvider>
-        <Suspense fallback={<div>Page is loading...</div>}>
+        <Suspense fallback={<div>Page is still loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="account" element={<LayoutAccount />}>
