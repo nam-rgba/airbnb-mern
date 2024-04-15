@@ -6,7 +6,6 @@ import { BiMedal } from 'react-icons/bi';
 import { FiShare } from 'react-icons/fi';
 import { HiOutlineArrowDownRight } from 'react-icons/hi2';
 import { BsFillHouseHeartFill } from 'react-icons/bs';
-import Image from '../../Image';
 import Character from '../../component/character/character';
 import Charged from '../../component/chagred/chagred';
 import { useParams } from 'react-router-dom';
@@ -108,9 +107,7 @@ export default function Room() {
                 <p>7 guests . 3 bedrooms . 4 beds . 3 baths</p>
               </div>
               <div className={style.avt}>
-                <div>
-                  <Image name={'profile'} type={'jpeg'} />
-                </div>
+                <div>{/* <Image name={'profile'} type={'jpeg'} /> */}</div>
               </div>
             </div>
 

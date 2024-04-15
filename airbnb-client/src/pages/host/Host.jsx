@@ -1,10 +1,10 @@
 import style from './host.module.css';
-import Image from '../../Image';
 import { Link } from 'react-router-dom';
 import { BiHome } from 'react-icons/bi';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
 import { useMemo, useState } from 'react';
+import logo from '../../assets/logo/airbnb.svg';
 
 export default function Host() {
   // State for HMAC
@@ -30,7 +30,7 @@ export default function Host() {
       <header className={style.header}>
         <Link to="/">
           <div className={style.branch}>
-            <Image name="airbnb" type="svg" />
+            <img src={logo} alt="" />
           </div>
         </Link>
 

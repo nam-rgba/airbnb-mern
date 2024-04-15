@@ -1,4 +1,4 @@
-import Image from '../../Image';
+// import Image from '../../Image';
 import style from './header.module.css';
 import { UserContext } from '../../contexts/UserContext';
 import useClickOutSide from '../../hooks/useClickOutSide';
@@ -12,6 +12,7 @@ import { BiSearch, BiSearchAlt, BiUser } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import axios from 'axios';
+import logo from '../../assets/logo/airbnb.svg';
 
 export default function Header({ hide, whenDisplaySearch, handleSearch }) {
   const { user } = useContext(UserContext);
@@ -47,7 +48,7 @@ export default function Header({ hide, whenDisplaySearch, handleSearch }) {
         {/* branch section */}
         <div className={style.logo}>
           <Link to={'/'}>
-            <Image name="airbnb" type="svg" />
+            <img src={logo} alt="" />
           </Link>
         </div>
 

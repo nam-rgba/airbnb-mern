@@ -1,10 +1,10 @@
 import style from './register.module.css';
 import { Link } from 'react-router-dom';
-import Image from '../../../Image';
 import { useState } from 'react';
 import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
 import { PrimaryButton, SecondaryButton, Input } from '../../../Component';
+import logo from '../../../assets/logo/airbnb.svg';
 
 const RegisterPage = () => {
   const [name, setName] = useState('');
@@ -29,7 +29,7 @@ const RegisterPage = () => {
     <div className={style.login}>
       <div className={style.logo}>
         <Link to="/">
-          <Image name="airbnb" type="svg" />
+          <img src={logo} alt="" />
         </Link>
       </div>
 

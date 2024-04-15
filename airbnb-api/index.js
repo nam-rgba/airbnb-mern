@@ -11,8 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    // origin: process.env.ORIGIN,
-    origin: "https://rap-ai.asia/",
+    origin: process.env.ORIGIN,
+    // origin: "https://rap-ai.asia/",
     methods: ["GET", "PUT", "POST", "DELETE"],
     optionsSuccessStatus: 204,
     credentials: true,
@@ -32,8 +32,6 @@ app.use(cookieParser());
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "AJwefD809uasdj29a8ASasj28S";
 
-console.log(process.env.MONGO_URL);
-console.log(new Date());
 
 //0n772csUcpn9EfCI
 mongoose.connect(process.env.MONGO_URL);

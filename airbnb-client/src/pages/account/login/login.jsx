@@ -1,11 +1,11 @@
 import style from './login.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Image from '../../../Image';
 import { useContext, useState } from 'react';
 import axios from 'axios';
 import { UserContext } from '../../../contexts/UserContext';
 import { FcGoogle } from 'react-icons/fc';
 import { PrimaryButton, SecondaryButton, Input } from '../../../Component';
+import logo from '../../../assets/logo/airbnb.svg';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -36,7 +36,7 @@ const LoginPage = () => {
     <div className={style.login}>
       <div className={style.logo}>
         <Link to="/">
-          <Image name="airbnb" type="svg" />
+          <img src={logo} alt="" />
         </Link>
       </div>
 
