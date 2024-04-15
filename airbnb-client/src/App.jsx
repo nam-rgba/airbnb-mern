@@ -22,13 +22,11 @@ const RegisterPage = lazy(() =>
   import('./pages/account/register/register.jsx')
 );
 
-// axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-axios.defaults.baseURL = 'http://103.146.23.192:4001';
+axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
 axios.defaults.withCredentials = true;
 console.log(axios.defaults.baseURL);
 
 function App() {
-  // const isDataFetched = data.length > 0;
   return (
     <>
       <UserContextProvider>

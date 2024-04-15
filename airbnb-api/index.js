@@ -9,21 +9,21 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
 
-// app.use(
-//   cors({
-//     // origin: process.env.ORIGIN,
-//     origin: "https://airbnb-mern-fe.vercel.app/",
-//     methods: ["GET", "PUT", "POST", "DELETE"],
-//     optionsSuccessStatus: 204,
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    // origin: process.env.ORIGIN,
+    origin: "https://rap-ai.asia/",
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    optionsSuccessStatus: 204,
+    credentials: true,
+  })
+);
 
 
-app.use(cors({
-	credentials: true,
-	origin: true
-}));
+// app.use(cors({
+// 	credentials: true,
+// 	origin: true
+// }));
 
 
 app.use(express.json());
