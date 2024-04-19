@@ -197,3 +197,58 @@
     color: #ff385c;
     font-weight: 600;
 }
+
+.easysetup {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10rem;
+}
+
+.setup_title {
+    width: 100%;
+    font-size: 48px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.setup_img {
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.setup_img img {
+    width: 100%;
+    height: 100%;
+}
+
+.setup_content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 3rem;
+    margin-top: 2rem;
+}
+
+.setup_small {
+    width: 23%;
+    text-align: left;
+}
+
+.setup_small_title {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.setup_small_content {
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 1rem;
+    color: gray;
+}

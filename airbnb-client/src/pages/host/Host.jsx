@@ -6,12 +6,15 @@ import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
 import { useMemo, useState } from 'react';
 import logo from '../../assets/logo/airbnb.svg';
 
+import easySetup from '../../assets/setup/setupeasily.webp';
+
 export default function Host() {
   // State for HMAC
   const [email, setEmail] = useState('');
 
+  console.log(import.meta.env.VITE_GOOGLE_KEY_MAP);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.GOOGLE_KEY_MAP
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_KEY_MAP
   });
 
   const center = useMemo(
@@ -98,7 +101,47 @@ export default function Host() {
         </div>
       </section>
 
-      <section className={style.easysetupS}></section>
+      <section className={style.easysetup}>
+        <div className={style.setup_title}>
+          Airbnb it easily with Airbnb Setup
+        </div>
+
+        <div className={style.setup_img}>
+          <img src={easySetup} alt="" />
+        </div>
+        <div className={style.setup_content}>
+          <div className={style.setup_small}>
+            <div className={style.setup_small_title}>
+              One-to-one guidance from a Superhost
+            </div>
+            <div className={style.setup_small_content}>
+              We’ll match you with a Superhost in your area, who’ll guide you
+              from your first question to your first guest—by phone, video call,
+              or chat.
+            </div>
+          </div>
+          <div className={style.setup_small}>
+            <div className={style.setup_small_title}>
+              An experienced guest for your first booking
+            </div>
+            <div className={style.setup_small_content}>
+              For your first booking, you can choose to welcome an experienced
+              guest who has at least three stays and a good track record on
+              Airbnb.
+            </div>
+          </div>
+          <div className={style.setup_small}>
+            <div className={style.setup_small_title}>
+              Specialized support from Airbnb
+            </div>
+            <div className={style.setup_small_content}>
+              New Hosts get one-tap access to specially trained Community
+              Support agents who can help with everything from account issues to
+              billing support.
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

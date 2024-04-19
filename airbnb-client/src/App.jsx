@@ -22,8 +22,8 @@ const RegisterPage = lazy(() =>
   import('./pages/account/register/register.jsx')
 );
 
-axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = import.meta.env.VITE_ORIGIN;
+// axios.defaults.withCredentials = true;
 console.log(axios.defaults.baseURL);
 
 function App() {
