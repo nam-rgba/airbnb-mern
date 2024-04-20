@@ -9,15 +9,6 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: process.env.ORIGIN,
-//     // origin: "https://rap-ai.asia/",
-//     methods: ["GET", "PUT", "POST", "DELETE"],
-//     optionsSuccessStatus: 204,
-//     credentials: true,
-//   })
-// );
 
 
 app.use(cors({
@@ -142,78 +133,5 @@ app.get("/api/user-places", (req, res) => {
   });
 });
 
-// app.post("/api/upload-by-link", async (req, res) => {
-//   const { link } = req.body;
-//   const newName = "photo" + Date.now() + ".jpg";
-//   await imageDownloader.image({
-//     url: link,
-//     dest: "/tmp/" + newName,
-//   });
-//   const url = await uploadToS3(
-//     "/tmp/" + newName,
-//     newName,
-//     mime.lookup("/tmp/" + newName)
-//   );
-//   res.json(url);
-// });
-
-// const photosMiddleware = multer({ dest: "/tmp" });
-// app.post(
-//   "/api/upload",
-//   photosMiddleware.array("photos", 100),
-//   async (req, res) => {
-//     const uploadedFiles = [];
-//     for (let i = 0; i < req.files.length; i++) {
-//       const { path, originalname, mimetype } = req.files[i];
-//       const url = await uploadToS3(path, originalname, mimetype);
-//       uploadedFiles.push(url);
-//     }
-//     res.json(uploadedFiles);
-//   }
-// );
-
-// app.post("/api/places", (req, res) => {
-//   mongoose.connect(process.env.MONGO_URL);
-//   const { token } = req.cookies;
-//   const {
-//     title,
-//     address,
-//     addedPhotos,
-//     description,
-//     price,
-//     perks,
-//     extraInfo,
-//     checkIn,
-//     checkOut,
-//     maxGuests,
-//   } = req.body;
-//   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-//     if (err) throw err;
-//     const placeDoc = await Place.create({
-//       owner: userData.id,
-//       price,
-//       title,
-//       address,
-//       photos: addedPhotos,
-//       description,
-//       perks,
-//       extraInfo,
-//       checkIn,
-//       checkOut,
-//       maxGuests,
-//     });
-//     res.json(placeDoc);
-//   });
-// });
-
-
-
-
-
-// app.get("/api/places/:id", async (req, res) => {
-//   mongoose.connect(process.env.MONGO_URL);
-//   const { id } = req.params;
-//   res.json(await Place.findById(id));
-// });
 
 app.listen(4000);

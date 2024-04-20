@@ -1,8 +1,20 @@
 {
  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": false,  
-  "prettier.useEditorConfig": false,
-  "prettier.useTabs": false,
+  "editor.formatOnPaste": true,  
+  "prettier.useEditorConfig": true,
+  "prettier.useTabs": true,
   "prettier.configPath": ".prettierrc.json",
+  "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
