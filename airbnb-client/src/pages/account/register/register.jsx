@@ -14,7 +14,7 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await axios.post('/register', {
+      await axios.post('/user/create', {
         name,
         email,
         password

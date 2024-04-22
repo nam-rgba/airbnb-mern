@@ -16,16 +16,15 @@ const LoginPage = () => {
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      const userDoc = await axios.post(
-        '/login',
-        { email, password },
-        { withCredentials: true }
-      );
+      const userDoc = await axios
+        .post('/auth/login', { email, password }, { withCredentials: true })
+        .then((res) => {
+          console.log(res.data);
+          return res.data;
+        });
       setUser(userDoc.data);
-      console.log(userDoc.data);
 
       alert('Login successfully');
-      // setRedirect(true);
       return navigate('/');
     } catch (error) {
       alert('Login failed!');
