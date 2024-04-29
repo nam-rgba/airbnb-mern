@@ -14,10 +14,10 @@ First, clone the project:
   ```bash
   git clone https://github.com/nam-rgba/airbnb-mern.git
   ```
-Then open terminal that target to 'airbnb-api' folder and run script for back-end:
+Then open terminal that target to 'airbnb-api-v2' folder and run script for back-end:
   ```bash
   npm install
-  npm run server
+  npm run start
   ```
 Same with another terminal in 'airbnb-client' folder:
   ```bash
