@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, ObjectIdColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, ObjectIdColumn, OneToMany } from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
+import { Rooms } from 'src/rooms/entities/room.entity'
+import { Bookings } from 'src/bookings/entities/booking.entity'
 
 @Entity()
 export class User {
@@ -20,6 +22,14 @@ export class User {
 
   @Column()
   isVerified: boolean
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @OneToMany((type) => Rooms, (room) => room.host)
+  rooms: Rooms[]
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @OneToMany((type) => Bookings, (booking) => booking.customer)
+  bookings: Bookings[]
 
   constructor(partial: Partial<User>) {
     Object.assign(this, partial)

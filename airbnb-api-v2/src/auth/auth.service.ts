@@ -10,7 +10,6 @@ export class AuthService {
   ) {}
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.userService.findOne(email)
-    console.log({ user })
     if (user) {
       const isMatch = bcrypt.compareSync(password, user.password)
       if (isMatch) {
@@ -25,5 +24,14 @@ export class AuthService {
     }
     console.log('fail')
     throw new UnauthorizedException()
+  }
+
+  async getProfile(token: string) {
+    try {
+      const payload = await this.jwtService.verifyAsync(token)
+      return payload // { sub: user.id, email: user.email }
+    } catch (error) {
+      throw new UnauthorizedException()
+    }
   }
 }

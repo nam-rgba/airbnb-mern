@@ -7,6 +7,9 @@ import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './user/schema/user.entity'
 import { RoomsModule } from './rooms/rooms.module'
+import { LikesModule } from './likes/likes.module'
+import { BookingsModule } from './bookings/bookings.module'
+import { ReviewsModule } from './reviews/reviews.module'
 
 @Module({
   imports: [
@@ -23,9 +26,13 @@ import { RoomsModule } from './rooms/rooms.module'
       synchronize: true,
       logging: true,
       entities: [User],
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      autoLoadEntities: true
     }),
-    RoomsModule
+    RoomsModule,
+    LikesModule,
+    BookingsModule,
+    ReviewsModule
   ],
   controllers: [AppController],
   providers: [AppService]

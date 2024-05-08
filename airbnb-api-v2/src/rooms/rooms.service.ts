@@ -4,9 +4,7 @@ import { UpdateRoomDto } from './dto/update-room.dto'
 
 @Injectable()
 export class RoomsService {
-  create(createRoomDto: CreateRoomDto) {
-    return 'This action adds a new room'
-  }
+  create(createRoomDto: CreateRoomDto) {}
 
   findAll() {
     return `This action returns all rooms`
