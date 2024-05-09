@@ -10,11 +10,13 @@ import logo from '../../../assets/logo/airbnb.svg';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
+
     try {
       const userDoc = await axios
         .post('/auth/login', { email, password }, { withCredentials: true })
@@ -27,6 +29,20 @@ const LoginPage = () => {
       alert('Login successfully');
       return navigate('/');
     } catch (error) {
+      if (email === 'guestfe@example.com' && password === '123456') {
+        alert('Login successfully with sample data for FE only');
+        setUser({ name: 'Guest', email: 'guestfe@example.com' });
+        localStorage.setItem(
+          'userfe',
+          JSON.stringify({
+            name: 'Guest',
+            email: 'guestfe@example.com',
+            bookings: [],
+            likes: []
+          })
+        );
+        return navigate('/');
+      }
       alert('Login failed!');
     }
   };

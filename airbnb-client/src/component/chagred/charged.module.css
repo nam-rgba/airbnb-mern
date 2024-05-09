@@ -8,6 +8,10 @@
 
 }
 
+svg {
+    padding: 0;
+}
+
 .charg_pernight_review {
     display: flex;
     flex-direction: row;
@@ -79,6 +83,12 @@
     padding: 0.5rem 1rem;
 }
 
+.guest_icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
 .button_notes {
     width: 100%;
     margin-top: 1rem;
@@ -126,5 +136,10 @@
     font-weight: 600;
     padding-top: 1rem;
     border-top: 1px solid #dddddd;
+}
 
+.col2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

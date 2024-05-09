@@ -15,13 +15,19 @@ import axios from 'axios';
 import logo from '../../assets/logo/airbnb.svg';
 
 export default function Header({ hide, whenDisplaySearch, handleSearch }) {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [ref, visible, toogleVisible] = useClickOutSide();
   const [ref2, visible2, toogleVisible2] = useClickOutSide(false);
 
   const logout = async () => {
-    await axios.post('/logout');
+    try {
+      await axios.post('/logout');
+    } catch (error) {
+      console.log(error);
+      setUser(null);
+      return navigate('/account/login');
+    }
     return navigate('/account/login');
   };
 

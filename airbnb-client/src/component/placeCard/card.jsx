@@ -1,7 +1,8 @@
-import style from "./card.module.css";
-import { AiFillStar } from "react-icons/ai";
-import Slider from "../slider/slider";
-import { Link } from "react-router-dom";
+import style from './card.module.css';
+import { AiFillStar } from 'react-icons/ai';
+import { BsCurrencyDollar } from 'react-icons/bs';
+import Slider from '../slider/slider';
+import { Link } from 'react-router-dom';
 
 export default function Card({ place }) {
   return (
@@ -18,11 +19,14 @@ export default function Card({ place }) {
           <div className={style.distance}>{place.distance}</div>
           <div className={style.date}>{place.timeAvailoble}</div>
           <div className={style.price}>
-            <span>{place.price}$ </span> nights
+            <span>
+              <BsCurrencyDollar size={16} /> {place.price}
+            </span>{' '}
+            / nights
           </div>
           <span>
-            {" "}
-            <AiFillStar /> {place.review}
+            {' '}
+            <AiFillStar size={16} color="var(--primary-color)" /> {place.review}
           </span>
         </div>
       </Link>

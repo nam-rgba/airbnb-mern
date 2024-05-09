@@ -5,16 +5,20 @@ import { AiFillStar } from 'react-icons/ai';
 import { BiMedal } from 'react-icons/bi';
 import { FiShare } from 'react-icons/fi';
 import { HiOutlineArrowDownRight } from 'react-icons/hi2';
-import { BsFillHouseHeartFill } from 'react-icons/bs';
 import Character from '../../component/character/character';
 import Charged from '../../component/chagred/chagred';
 import { useParams } from 'react-router-dom';
 import { places } from '../../utils';
+import { FaRegHeart } from 'react-icons/fa';
+import { IoMdHeart } from 'react-icons/io';
+import { useState } from 'react';
 
 export default function Room() {
   const idRoom = useParams();
-  console.log(idRoom);
   const place = places[idRoom.id - 1];
+  const user = JSON.parse(localStorage.getItem('userfe'));
+  const [like, setLike] = useState(user.likes.includes(place.id));
+  const [seeMore, setSeeMore] = useState(false);
 
   const characters = [
     {
@@ -69,8 +73,33 @@ export default function Room() {
                 Share
               </div>
               <div className={style.save}>
-                <BsFillHouseHeartFill />
-                Save
+                {like ? (
+                  <div>
+                    <IoMdHeart
+                      color="var(--primary-color)"
+                      onClick={() => {
+                        setLike(!like);
+                        user.likes = user.likes.filter(
+                          (item) => item !== place.id
+                        );
+                        localStorage.setItem('userfe', JSON.stringify(user));
+                      }}
+                    />
+                    Loved
+                  </div>
+                ) : (
+                  <div>
+                    <FaRegHeart
+                      color="var(--primary-color)"
+                      onClick={() => {
+                        setLike(!like);
+                        user.likes.push(place.id);
+                        localStorage.setItem('userfe', JSON.stringify(user));
+                      }}
+                    />
+                    Love it
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -122,7 +151,10 @@ export default function Room() {
               ))}
             </div>
             <div className={style.about}>
-              <div className={style.text}>
+              <div
+                className={style.longdes}
+                style={{ height: seeMore ? 'auto' : '4rem' }}
+              >
                 A stunningly situated 3 bedroom house, overlooking idyllic
                 Polurrian Beach on the edge of the Lizard. The perfect spot for
                 a magic Cornwall family holiday, the secluded comfy three bed
@@ -132,7 +164,10 @@ export default function Room() {
                 coastal path, nearby surf spots and great food in Porthleven,
                 theres something for everyone.
               </div>
-              <div className={style.seemore}>
+              <div
+                className={style.seemore}
+                onClick={() => setSeeMore(!seeMore)}
+              >
                 <p>Show more </p>
                 <HiOutlineArrowDownRight size={14} />
               </div>
@@ -140,7 +175,7 @@ export default function Room() {
           </div>
 
           <div className={style.checkout}>
-            <Charged price={place.price} />
+            <Charged price={place.price} star={place.review} />
           </div>
         </section>
       </div>

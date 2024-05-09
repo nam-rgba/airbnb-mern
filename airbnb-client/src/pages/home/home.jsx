@@ -35,7 +35,7 @@ const Home = () => {
         </div>
         <div className={style.places}>
           {placeFiltered.map((place) => (
-            <Card key={place.place} place={place} />
+            <Card key={place.id} place={place} />
           ))}
         </div>
       </div>

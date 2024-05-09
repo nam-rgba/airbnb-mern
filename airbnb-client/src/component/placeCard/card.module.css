@@ -53,18 +53,35 @@
 .price {
     text-align: left;
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 
 .price span {
     /* text-decoration: underline; */
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0.2rem;
+}
+
+.price>span>svg {
+    padding: 0;
 }
 
 .infomation>span {
     position: absolute;
     top: 0;
     right: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 414px) {

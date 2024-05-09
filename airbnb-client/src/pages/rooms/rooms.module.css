@@ -34,6 +34,7 @@
     line-height: 26px;
 }
 
+
 .text .overview {
     display: flex;
     flex-direction: column;
@@ -218,16 +219,13 @@
 
 }
 
-.about .text {
+.about .longdes {
     height: 4rem;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    /* Required for webkit browsers */
-    -webkit-line-clamp: 3;
-    /* Set the number of lines before truncation */
-    -webkit-box-orient: vertical;
+
 }
 
 .seemore {

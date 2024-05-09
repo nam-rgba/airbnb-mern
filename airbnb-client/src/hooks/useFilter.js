@@ -32,7 +32,7 @@ export const useFilter = () => {
 
   const handleSearch = useCallback((value) => {
     const placesInCoutry = places.filter(
-      (place) => place.country === value.country
+      (place) => place.country.toLowerCase() === value.country
     );
     const placesInPrice = placesInCoutry.filter(
       (place) =>
