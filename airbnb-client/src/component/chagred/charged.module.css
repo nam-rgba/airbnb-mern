@@ -143,3 +143,9 @@ svg {
     flex-direction: row;
     align-items: center;
 }
+
+.reserve {
+    width: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+}

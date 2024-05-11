@@ -6,18 +6,25 @@ import { getBill } from '../../utils';
 import { useState } from 'react';
 
 export default function Charged(props) {
-  const { price, star } = props;
+  const { price, star, handleReserve, reserve } = props;
   const [guest, setGuest] = useState(1);
 
   const date = new Date();
-  let day = date.getDay() + 2;
-  let month = date.getMonth();
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
   let year = date.getFullYear();
+  console.log(day, month, year);
 
   let checkin = day + '/' + month + '/' + year;
-  let checkout = day + 3 + '/' + month + '/' + year;
+  let dayout = day + 3 > 30 ? day + 3 - 30 : day + 3;
+  let checkout =
+    dayout + 3 + '/' + (day + 3 > 30 ? month + 1 : month) + '/' + year;
+  let string = day + '-' + checkout;
 
   const bill = getBill(price, guest, 3, 0.1);
+  const handleClick = () => {
+    handleReserve(bill.total, string);
+  };
 
   return (
     <div className={style.container}>
@@ -60,7 +67,10 @@ export default function Charged(props) {
         </div>
       </div>
       <div className={style.button_notes}>
-        <button>Reserve</button>
+        <p className={style.reserve}>
+          {reserve ? 'You reserved this room' : 'Reverse your reservation'}
+        </p>
+        <button onClick={handleClick}>{reserve ? 'Cancle' : 'Reverse'}</button>
         <p>You will not be charged yet</p>
       </div>
       <div className={style.bill}>

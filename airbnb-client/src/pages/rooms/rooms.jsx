@@ -19,6 +19,9 @@ export default function Room() {
   const user = JSON.parse(localStorage.getItem('userfe'));
   const [like, setLike] = useState(user.likes.includes(place.id));
   const [seeMore, setSeeMore] = useState(false);
+  const [reserve, setReserve] = useState(
+    user.bookings.some((booking) => booking.id === place.id)
+  );
 
   const characters = [
     {
@@ -40,6 +43,25 @@ export default function Room() {
       describe: '100% of recent guests gave the location a 5-star rating.'
     }
   ];
+
+  const handleReserve = (price, time) => {
+    if (reserve) {
+      user.bookings = user.bookings.filter(
+        (booking) => booking.id !== place.id
+      );
+
+      setReserve(false);
+    } else {
+      user.bookings.push({
+        id: place.id,
+        name: place.place,
+        price: price,
+        time: time
+      });
+      setReserve(true);
+    }
+    localStorage.setItem('userfe', JSON.stringify(user));
+  };
 
   return (
     <div className={style.container}>
@@ -175,7 +197,12 @@ export default function Room() {
           </div>
 
           <div className={style.checkout}>
-            <Charged price={place.price} star={place.review} />
+            <Charged
+              price={place.price}
+              star={place.review}
+              handleReserve={handleReserve}
+              reserve={reserve}
+            />
           </div>
         </section>
       </div>

@@ -6,7 +6,7 @@ import { MdOutlineDone, MdOutlineQuestionMark } from 'react-icons/md';
 import avt from '../../../assets/logo/airbnb.svg';
 
 export default function ProfilePage() {
-  const { user, ready } = useContext(UserContext);
+  let { user, ready } = useContext(UserContext);
   const navigate = useNavigate();
 
   const time = () => {
@@ -20,11 +20,13 @@ export default function ProfilePage() {
   if (ready && !user) {
     return navigate('/account/login');
   } else if (!ready) {
-    return <p>Loading...</p>;
+    user = JSON.parse(localStorage.getItem('userfe'));
   }
 
+  const booking = user.bookings;
+
   return (
-    <>
+    <div className={style.con}>
       <div className={style.info}>
         <section className={style.card}>
           <div className={style.card_info}>
@@ -66,7 +68,29 @@ export default function ProfilePage() {
         <section className={style.table}></section>
       </div>
 
-      <div className={style.action}></div>
-    </>
+      <div className={style.action}>
+        <h3>Your Bookings</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {booking.map((item, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{item.name}</td>
+                <td>{item.price}</td>
+                <td>{item.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
