@@ -5,7 +5,6 @@ import { RiSendPlaneFill } from 'react-icons/ri';
 import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
 import { useMemo, useState } from 'react';
 import logo from '../../assets/logo/airbnb.svg';
-
 import easySetup from '../../assets/setup/setupeasily.webp';
 
 export default function Host() {
@@ -91,7 +90,7 @@ export default function Host() {
             <GoogleMap
               mapContainerClassName={style.map_container}
               center={center}
-              zoom={16}
+              zoom={13}
             >
               <MarkerF
                 position={{ lat: 10.732680385612682, lng: 106.69933696671156 }}
