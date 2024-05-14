@@ -8,8 +8,8 @@ import { PrimaryButton, SecondaryButton, Input } from '../../../Component';
 import logo from '../../../assets/logo/airbnb.svg';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('guestfe@example.com');
+  const [password, setPassword] = useState('123456');
 
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
@@ -31,7 +31,12 @@ const LoginPage = () => {
     } catch (error) {
       if (email === 'guestfe@example.com' && password === '123456') {
         alert('Login successfully with sample data for FE only');
-        setUser({ name: 'Guest', email: 'guestfe@example.com' });
+        setUser({
+          name: 'Guest',
+          email: 'guestfe@example.com',
+          likes: [],
+          bookings: []
+        });
         localStorage.setItem(
           'userfe',
           JSON.stringify({

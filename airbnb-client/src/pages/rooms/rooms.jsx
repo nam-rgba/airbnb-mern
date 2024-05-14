@@ -17,10 +17,10 @@ export default function Room() {
   const idRoom = useParams();
   const place = places[idRoom.id - 1];
   const user = JSON.parse(localStorage.getItem('userfe'));
-  const [like, setLike] = useState(user.likes.includes(place.id));
+  const [like, setLike] = useState(user?.likes.includes(place.id) || false);
   const [seeMore, setSeeMore] = useState(false);
   const [reserve, setReserve] = useState(
-    user.bookings.some((booking) => booking.id === place.id)
+    user?.bookings.some((booking) => booking.id === place.id)
   );
 
   const characters = [
