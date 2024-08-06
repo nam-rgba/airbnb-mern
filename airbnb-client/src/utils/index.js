@@ -68,10 +68,10 @@ export const places = [
     timeAvailoble: 'Sep 4-9',
     price: '175',
     image: [
-      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/6889f224-55b9-4515-9f27-fe29d9a6c343.jpeg?im_w=960',
-      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/0869bde5-b15d-4b5b-81f1-0fd5b54cd56a.jpeg?im_w=1200',
+      'https://a0.muscache.com/im/pictures/miso/Hosting-701497672425802721/original/55119469-c11b-4425-8ae1-c643c68d4001.jpeg?im_w=720',
+      'https://a0.muscache.com/im/pictures/miso/Hosting-936818571459983141/original/8c585184-acf5-4ef1-89b3-a990159681e8.jpeg?im_w=1200',
       'https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/9801f819-6195-4b68-880c-d91f78eb861a.jpeg?im_w=1200',
-      'https://a0.muscache.com/im/pictures/prohost-api/Hosting-914212782108935893/original/2945f395-552f-4e62-9bb8-ebae020c9b8f.jpeg?im_w=1200'
+      'https://a0.muscache.com/im/pictures/miso/Hosting-701497672425802721/original/f9d762a2-5d47-4af7-8b37-376ca936b204.jpeg?im_w=1200'
     ],
     review: '5.0',
     type: 'camping',
